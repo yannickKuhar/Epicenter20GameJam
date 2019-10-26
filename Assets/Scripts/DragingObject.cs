@@ -14,7 +14,7 @@ public class DragingObject : MonoBehaviour
     private void Dragging()
     {
         this.transform.SetParent(player.transform);
-        player.GetComponent<WhitePlayer>().movementSpeed = 1.0f;
+        player.GetComponent<PlayerController>().movementSpeed = 1.0f;
         //collision.collider.gameObject.GetComponent<WhitePlayer>().isjumping = true;
         isDragging = true;
     }
@@ -22,7 +22,7 @@ public class DragingObject : MonoBehaviour
     private void StopDragging()
     {
         this.transform.SetParent(null);
-        player.GetComponent<WhitePlayer>().movementSpeed = 2.0f;
+        player.GetComponent<PlayerController>().movementSpeed = 2.0f;
         isDragging = false;
     }
 

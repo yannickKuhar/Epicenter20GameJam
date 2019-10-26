@@ -11,13 +11,6 @@ public class WhitePlayer : MonoBehaviour
 
 	private Rigidbody2D rb;
 
-	public GameObject bullet;
-	public GameObject bulletSpawnPoint;
-	
-	public KeyCode fireButton;
-	public float bulletSpeed;
-	public int bulletCount = 5;
-
 	private bool facingRight = true;
 
 	private bool isJumping = false;
@@ -44,11 +37,6 @@ public class WhitePlayer : MonoBehaviour
   {
 		PlayerMovement();
 		PlayerJump();
-
-		if (bulletCount > 0)
-		{
-			BulletFire();
-		}
   }
 		
 	//////////////////// Player move. ////////////////////
@@ -133,26 +121,10 @@ public class WhitePlayer : MonoBehaviour
  
 		return false; 
 	}
-	
-	//////////////////// Bullet fire. ////////////////////
 
-	private void BulletFire()
+	//////////////////// Getters. ////////////////////
+	public bool GetFacingRight()
 	{
-		if (Input.GetKeyDown(fireButton))
-		{	
-			GameObject projectile = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
-			Rigidbody2D projRB = projectile.GetComponent<Rigidbody2D>();
-			
-			if (facingRight)
-			{
-				projRB.velocity = Vector2.right * bulletSpeed;
-			}
-			else
-			{
-				projRB.velocity = Vector2.left * bulletSpeed;
-			}
-
-			bulletCount--;
-		}
+		return facingRight;
 	}
 }

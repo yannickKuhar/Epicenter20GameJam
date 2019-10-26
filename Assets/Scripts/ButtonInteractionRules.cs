@@ -30,18 +30,6 @@ public class ButtonInteractionRules : MonoBehaviour
     }
     void Update()
     {
-        //ce sta oba gumba pressed
-        if (TopButton.GetComponent<BasicButtonPress>().pressed && BottomButton.GetComponent<BasicButtonPress>().pressed)
-        {
-            bothPressed = true;
-        }
-        if (!TopButton.GetComponent<BasicButtonPress>().pressed && !BottomButton.GetComponent<BasicButtonPress>().pressed)
-        {
-            bothPressed = false;
-        }
-        else
-        {
-            Debug.Log("This aint it chief");
-        }
+
     }
 }

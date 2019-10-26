@@ -7,21 +7,20 @@ public class WinChecker : MonoBehaviour
     [SerializeField] private WinLoader loader;
     [SerializeField] private string playerColor = "Black";
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" + playerColor)
         {
-            Debug.Log("Commence win trigger");
-
-            if (playerColor == "Black")
-            { 
-                Debug.Log("player je crn, dodaj crni check");
-                loader.GetComponent<WinLoader>().blackCheck = true;
-            }
-            if (playerColor == "White")
-            {
-                loader.GetComponent<WinLoader>().whiteCheck = true;
-            }
+            Debug.Log("player entered");
+            loader.GetComponent<WinLoader>().blackCheck = true;
         }
     }
+
+    
 }

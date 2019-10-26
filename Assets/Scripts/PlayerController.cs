@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	public string horizontalInputName;
+    public string horizontalInputName;
 	public string verticalInputName;
 
 	public float movementSpeed = 5.0f;
@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
 	
 	private float width;
 	private float height;
- 
-	//////////////////// Unity main functions. ////////////////////
 
-  void Awake()
+
+    //////////////////// Unity main functions. ////////////////////
+
+    void Awake()
   {
 		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
 		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
@@ -136,4 +137,7 @@ public class PlayerController : MonoBehaviour
 	{
 		return facingRight;
 	}
+
+    /////////////////// Win conditions //////////////
+
 }

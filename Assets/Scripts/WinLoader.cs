@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class WinLoader : MonoBehaviour
 {
-    [SerializeField] public bool blackCheck, whiteCheck;
+    public bool blackCheck;
+    public bool whiteCheck;
 
-    private void Start()
+    
+
+
+    public int currentLvl;
+
+    public void Start()
     {
         blackCheck = false;
         whiteCheck = false;

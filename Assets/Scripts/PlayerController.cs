@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	public float maxJumpTime = 0.2f;
 
     public bool isDragging = false;
+    public string PullControl;
 	
 	public KeyCode jumpKey;
 		

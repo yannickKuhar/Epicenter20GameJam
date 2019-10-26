@@ -288,6 +288,8 @@ MonoBehaviour:
   movementSpeed: 2.5
   jumpSpeed: 6.5
   maxJumpTime: 0.2
+  isDragging: 0
+  PullControl: 0
   jumpKey: 0
 --- !u!114 &1829006982216738655
 MonoBehaviour:
@@ -301,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b8f718db4a9ffad8bfdd090de05d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   attackKey: 303
   sword: {fileID: 1829006981136676471}
   swordPoint: {fileID: 1829006981007436884}

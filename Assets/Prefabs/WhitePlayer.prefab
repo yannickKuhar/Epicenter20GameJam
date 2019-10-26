@@ -150,6 +150,8 @@ MonoBehaviour:
   movementSpeed: 2.5
   jumpSpeed: 6.5
   maxJumpTime: 0.2
+  isDragging: 0
+  PullControl: f
   jumpKey: 119
 --- !u!114 &3460904690154016470
 MonoBehaviour:

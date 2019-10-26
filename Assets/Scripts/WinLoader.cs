@@ -8,7 +8,7 @@ public class WinLoader : MonoBehaviour
     public bool blackCheck;
     public bool whiteCheck;
 
-    
+    public string nextLvl;
 
 
     public int currentLvl;
@@ -23,7 +23,7 @@ public class WinLoader : MonoBehaviour
         if (blackCheck && whiteCheck)
         {
             Debug.Log("Load next lvl");
-            //SceneManager.LoadScene(Level2)
+            SceneManager.LoadScene(nextLvl);
         }
     }
 }

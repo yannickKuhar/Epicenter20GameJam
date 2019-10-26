@@ -28,12 +28,14 @@ public class BasicButtonPress : MonoBehaviour
             Debug.Log("Player is on the button, drop down.");
             ButtonGoesDown();
             pressed = true;
+            buddyButton.gameObject.GetComponent<BasicButtonPress>().pressed = true;
         }
         else if (collision.gameObject.tag == "PlayerWhite" && interactibleByBoth || collision.gameObject.tag == "PlayerBlack" && interactibleByBoth)
         {
             Debug.Log("Player is on the button, drop down.");
             ButtonGoesDown();
             pressed = true;
+            buddyButton.gameObject.GetComponent<BasicButtonPress>().pressed = true;
         }
         else
         {

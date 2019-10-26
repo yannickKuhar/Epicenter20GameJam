@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
 	public float maxJumpTime = 0.2f;
 
     public bool isDragging = false;
+    public string PullControl;
 	
+	public KeyCode jumpKey;
+		
 	private float rayCastLength = 0.005f;
 	
 	private float width;
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
   }
 
-  void FixedUpdate()
+  void Update()
   {
 		PlayerMovement();
 		PlayerJump();
@@ -61,21 +64,22 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	
-	void FlipPlayer(){
+	void FlipPlayer()
+	{
 
-        if (isDragging == false)
-        {
-            // Flip the facing value
-            facingRight = !facingRight;
+		if (isDragging == false)
+    {
+			// Flip the facing value
+      facingRight = !facingRight;
 
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
-        }		
+      Vector3 scale = transform.localScale;
+      scale.x *= -1;
+      transform.localScale = scale;
+    }		
 	}
  
 	//////////////////// Player jump. ////////////////////
-	
+
 	private void PlayerJump()
 	{
 		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;

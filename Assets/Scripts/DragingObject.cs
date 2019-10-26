@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class DragingObject : MonoBehaviour
 {
-    private GameObject player;
-
-    private string WPPull = "f";
-    private string BPPull = "m";
-
     private bool isDragging = false;
-    
+
+    private GameObject player;
+    private string pull;
+
     private void Dragging()
     {
         this.transform.SetParent(player.transform);
         player.GetComponent<PlayerController>().movementSpeed = 1.0f;
-        //collision.collider.gameObject.GetComponent<WhitePlayer>().isjumping = true;
+        player.GetComponent<PlayerController>().isDragging = true;
         isDragging = true;
     }
 
@@ -23,31 +21,36 @@ public class DragingObject : MonoBehaviour
     {
         this.transform.SetParent(null);
         player.GetComponent<PlayerController>().movementSpeed = 2.0f;
+        player.GetComponent<PlayerController>().isDragging = false;
         isDragging = false;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        player = collision.collider.gameObject;
+        if (collision.collider.CompareTag("Player"))
+        {
+            player = collision.collider.gameObject;
+            pull = player.GetComponent<PlayerController>().PullControl;
+        }
 
-        if (Input.GetKey(WPPull) && player.name == "WhitePlayer" && isDragging == false)
-            Dragging();
-        
-        if (Input.GetKey(BPPull) && player.name == "BlackPlayer" && isDragging == false)
-            Dragging();
+        if (Input.GetKey(pull) && collision.collider.gameObject == player && isDragging == false)
+        {
+            Vector3 contactPoint = collision.contacts[0].point;
+            Vector3 center = collision.collider.bounds.center;
 
-        if (player.CompareTag("Wall")) { }
+            if (contactPoint.y <= center.y + (player.transform.lossyScale.x / 2) && contactPoint.y >= center.y - (player.transform.lossyScale.x / 2))            
+                Dragging();            
+        }
     }
 
     private void Update()
     {
-        if (isDragging == true )
+        if (isDragging == true)
         {
-            if (!Input.GetKey(WPPull) && player.name == "WhitePlayer")
+            if (!Input.GetKey(pull))
+            {
                 StopDragging();
-
-            if (!Input.GetKey(BPPull) && player.name == "BlackPlayer")
-                StopDragging();
+            }
         }
     }
 }

@@ -2,43 +2,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class BasicButtonPress : MonoBehaviour
 {
-    public bool activated = false;
-    public GameObject[] Player;
+    [Header("Fethcer")]
     public GameObject execution;
+    public GameObject buttonUp;
+    public GameObject buttonDown;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    [Header("Interaction Settings")]
+    [SerializeField] private string objColor;
+    public bool interactibleByBoth;
+    
+    [Header("Stats")]
+    public bool pressed = false;
+    
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {        
-        if (activated == false && collision.collider.name == Player[0].name)
+        if (collision.gameObject.tag == "Player" + objColor)
         {
-            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            this.GetComponent<Rigidbody2D>().mass = 1;
-            activated = true;
+            Debug.Log("Player is on the button, drop down.");
+            ButtonGoesDown();
+            pressed = true;
         }
-        
-        else if (activated == false && Player.Length == 2)
+        else if (collision.gameObject.tag == "Player" && interactibleByBoth)
         {
-            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            this.GetComponent<Rigidbody2D>().mass = 1;
-            activated = true;
+            Debug.Log("Player is on the button, drop down.");
+            ButtonGoesDown();
+            pressed = true;
         }
+        else
+        {
+            Debug.Log("Incorrect player on the platform");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PlayerWhite" || collision.gameObject.tag == "PlayerBlack")
+        {
+            Debug.Log("Player is off the button.");
+            ButtonGoesUp();
+            pressed = false;
+        }    
+    }
 
-        if (collision.collider.name == "ButtonBottom")
-        {
-            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            try
-            {
-                execution.GetComponent<ExecuteButton>().ExecuteCommand();
-            }
-            catch
-            {
-                execution.GetComponentInChildren<ExecuteButton>().ExecuteCommand();
-            }
-            finally
-            {
-                Debug.Log("Button Press Error.");
-            }
-        }
+    private void ButtonGoesDown()
+    {
+        buttonUp.SetActive(false);
+        buttonDown.SetActive(true);
+        //animator.SetTrigger("GoDown");
+    }
+    private void ButtonGoesUp()
+    {
+        buttonUp.SetActive(true);
+        buttonDown.SetActive(false);
+        //animator.SetTrigger("GoTop");
+    }
+    private void Update()
+    {
     }
 }

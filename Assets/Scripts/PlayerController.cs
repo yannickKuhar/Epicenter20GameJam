@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
 	
+	public KeyCode jumpKey;
+		
 	private float rayCastLength = 0.005f;
 	
 	private float width;
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
   }
 
-  void FixedUpdate()
+  void Update()
   {
 		PlayerMovement();
 		PlayerJump();
@@ -59,7 +61,8 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 	
-	void FlipPlayer(){
+	void FlipPlayer()
+	{
  
 		// Flip the facing value
 		facingRight = !facingRight;
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour
 	}
  
 	//////////////////// Player jump. ////////////////////
-	
+
 	private void PlayerJump()
 	{
 		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;

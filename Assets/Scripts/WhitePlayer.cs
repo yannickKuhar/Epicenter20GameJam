@@ -11,13 +11,22 @@ public class WhitePlayer : MonoBehaviour
 
 	private Rigidbody2D rb;
 
+	public GameObject bullet;
+	public GameObject bulletSpawnPoint;
+	
+	public KeyCode fireButton;
+	public float bulletSpeed;
+	public int bulletCount = 5;
+
+	private bool facingRight = true;
+
 	private bool isJumping = false;
+	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
-	private float jumpButtonPressTime = 0.0f;
 	
 	private float rayCastLength = 0.005f;
-
+	
 	private float width;
 	private float height;
  
@@ -28,16 +37,21 @@ public class WhitePlayer : MonoBehaviour
 		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
 		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
 
-		rb = GetComponent<Rigidbody2D>();	
+		rb = GetComponent<Rigidbody2D>();
   }
 
   void FixedUpdate()
   {
 		PlayerMovement();
 		PlayerJump();
+
+		if (bulletCount > 0)
+		{
+			BulletFire();
+		}
   }
 		
-	//////////////////// My functions. ////////////////////
+	//////////////////// Player move. ////////////////////
 
 	private void PlayerMovement()
 	{
@@ -46,8 +60,29 @@ public class WhitePlayer : MonoBehaviour
 		Vector2 vect = rb.velocity;
  
 		rb.velocity = new Vector2 (horizInput * movementSpeed, vect.y);
-	}
 
+		if (horizInput > 0 && !facingRight)
+		{
+			FlipPlayer();
+		}
+		else if (horizInput < 0 && facingRight)
+		{
+			FlipPlayer();
+		}
+	}
+	
+	void FlipPlayer(){
+ 
+		// Flip the facing value
+		facingRight = !facingRight;
+ 
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
+	}
+ 
+	//////////////////// Player jump. ////////////////////
+	
 	private void PlayerJump()
 	{
 		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
@@ -97,5 +132,27 @@ public class WhitePlayer : MonoBehaviour
 		}
  
 		return false; 
+	}
+	
+	//////////////////// Bullet fire. ////////////////////
+
+	private void BulletFire()
+	{
+		if (Input.GetKeyDown(fireButton))
+		{	
+			GameObject projectile = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
+			Rigidbody2D projRB = projectile.GetComponent<Rigidbody2D>();
+			
+			if (facingRight)
+			{
+				projRB.velocity = Vector2.right * bulletSpeed;
+			}
+			else
+			{
+				projRB.velocity = Vector2.left * bulletSpeed;
+			}
+
+			bulletCount--;
+		}
 	}
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 146338426462685414}
   m_Layer: 0
   m_Name: WhitePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,5 +145,9 @@ MonoBehaviour:
   horizontalInputName: Horizontal
   verticalInputName: Vertical
   movementSpeed: 2.5
+  bullet: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  fireButton: 0
+  bulletSpeed: 0
   jumpSpeed: 6.5
   maxJumpTime: 0.2

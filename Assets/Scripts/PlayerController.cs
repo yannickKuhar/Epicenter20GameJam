@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
+
+    public bool isDragging = false;
 	
 	private float rayCastLength = 0.005f;
 	
@@ -60,13 +62,16 @@ public class PlayerController : MonoBehaviour
 	}
 	
 	void FlipPlayer(){
- 
-		// Flip the facing value
-		facingRight = !facingRight;
- 
-		Vector3 scale = transform.localScale;
-		scale.x *= -1;
-		transform.localScale = scale;
+
+        if (isDragging == false)
+        {
+            // Flip the facing value
+            facingRight = !facingRight;
+
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
+        }		
 	}
  
 	//////////////////// Player jump. ////////////////////
@@ -77,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
 		// Debug.Log(vertInput);
 
-		if (IsOnGround () && isJumping == false)
+		if (IsOnGround () && isJumping == false && isDragging == false)
 		{
 			if (vertInput > 0f)
 			{

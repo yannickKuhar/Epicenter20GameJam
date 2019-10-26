@@ -284,8 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInputName: HorizontalLR
   verticalInputName: VerticalUD
-  movementSpeed: 2.5
-  jumpSpeed: 6.5
+  movementSpeed: 5
+  jumpSpeed: 5
   maxJumpTime: 0.2
 --- !u!114 &7058831536122180251
 MonoBehaviour:
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b8f718db4a9ffad8bfdd090de05d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackKey: 303
+  attackKey: 0
   sword: {fileID: 8122046608065782367}
   swordPoint: {fileID: 8122046608056580027}
   distance: 0.58

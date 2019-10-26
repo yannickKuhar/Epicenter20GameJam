@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7109684045332397805}
   m_Layer: 9
   m_Name: WhitePlayer
-  m_TagString: Player
+  m_TagString: PlayerWhite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInputName: HorizontalAD
   verticalInputName: VerticalWS
-  movementSpeed: 2.5
+  movementSpeed: 3.5
   jumpSpeed: 6.5
   maxJumpTime: 0.2
 --- !u!114 &7109684045332397805
@@ -257,11 +257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7109684045332397803}
     m_Modifications:
-    - target: {fileID: 4255553599611731076, guid: 185506d4037c299aea74da803164965c,
-        type: 3}
-      propertyPath: m_Name
-      value: SpawnPoint
-      objectReference: {fileID: 0}
     - target: {fileID: 4255553599611731077, guid: 185506d4037c299aea74da803164965c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -316,6 +311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255553599611731076, guid: 185506d4037c299aea74da803164965c,
+        type: 3}
+      propertyPath: m_Name
+      value: SpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 185506d4037c299aea74da803164965c, type: 3}

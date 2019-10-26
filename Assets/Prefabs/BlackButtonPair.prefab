@@ -131,7 +131,7 @@ MonoBehaviour:
   buttonUp: {fileID: 2833117834387841724}
   buttonDown: {fileID: 2833117833907618426}
   buddyButton: {fileID: 2833117834622186638}
-  objColor: White
+  objColor: Black
   interactibleByBoth: 0
   pressed: 0
 --- !u!114 &2833117833050204733
@@ -220,6 +220,7 @@ MonoBehaviour:
   TopButton: {fileID: 2833117833050204730}
   BottomButton: {fileID: 2833117834622186638}
   bothCanInteract: 0
+  bothPressed: 0
 --- !u!1 &2833117833528393735
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +512,7 @@ MonoBehaviour:
   buttonUp: {fileID: 2833117833528393735}
   buttonDown: {fileID: 2833117832855505684}
   buddyButton: {fileID: 2833117833050204730}
-  objColor: White
+  objColor: Black
   interactibleByBoth: 0
   pressed: 0
 --- !u!114 &2833117834622186865

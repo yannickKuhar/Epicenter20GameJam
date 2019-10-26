@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFire : MonoBehaviour
 {
-  public WhitePlayer player;
+  public PlayerController player;
 	public GameObject bullet;
 	public GameObject bulletSpawnPoint;
 

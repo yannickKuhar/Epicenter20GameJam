@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
+	public PlayerController player;
 	public KeyCode attackKey;
 	public GameObject sword;
 	public GameObject swordPoint;
@@ -21,7 +22,17 @@ public class SwordAttack : MonoBehaviour
 	private void Attack()
 	{
 		Vector3 start = new Vector3(sword.transform.position.x, sword.transform.position.y, sword.transform.position.z);
-		Vector3 goal = new Vector3(sword.transform.position.x + distance, sword.transform.position.y, sword.transform.position.z);
+
+		Vector3 goal;
+		
+		if (player.GetFacingRight())
+		{
+			goal = new Vector3(sword.transform.position.x + distance, sword.transform.position.y, sword.transform.position.z);
+		}
+		else
+		{
+			goal = new Vector3(sword.transform.position.x - distance, sword.transform.position.y, sword.transform.position.z);
+		}
 
 		sword.transform.position = goal;
 

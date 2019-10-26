@@ -14,7 +14,10 @@ public class BulletFire : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		FireBullet();
+		if (bulletCount > 0)
+		{
+			FireBullet();
+		}
 	}
 
 	//////////////////// Bullet fire. ////////////////////

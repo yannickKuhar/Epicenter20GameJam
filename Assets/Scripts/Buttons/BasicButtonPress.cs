@@ -10,6 +10,7 @@ public class BasicButtonPress : MonoBehaviour
     public GameObject execution;
     public GameObject buttonUp;
     public GameObject buttonDown;
+    public BasicButtonPress buddyButton;
 
     [Header("Interaction Settings")]
     [SerializeField] private string objColor;
@@ -28,7 +29,7 @@ public class BasicButtonPress : MonoBehaviour
             ButtonGoesDown();
             pressed = true;
         }
-        else if (collision.gameObject.tag == "Player" && interactibleByBoth)
+        else if (collision.gameObject.tag == "PlayerWhite" && interactibleByBoth || collision.gameObject.tag == "PlayerBlack" && interactibleByBoth)
         {
             Debug.Log("Player is on the button, drop down.");
             ButtonGoesDown();
@@ -52,16 +53,25 @@ public class BasicButtonPress : MonoBehaviour
     private void ButtonGoesDown()
     {
         buttonUp.SetActive(false);
+        buddyButton.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         buttonDown.SetActive(true);
+        buddyButton.gameObject.transform.GetChild(1).gameObject.SetActive(true);
         //animator.SetTrigger("GoDown");
     }
     private void ButtonGoesUp()
     {
         buttonUp.SetActive(true);
+        buddyButton.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         buttonDown.SetActive(false);
-        //animator.SetTrigger("GoTop");
+        buddyButton.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
+
     }
     private void Update()
     {
+        if (pressed)
+        {
+            
+        }
     }
 }

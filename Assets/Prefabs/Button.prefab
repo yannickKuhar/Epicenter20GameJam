@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
+  Player: {fileID: 0}
   execution: {fileID: 0}
 --- !u!1 &3796376976124979604
 GameObject:

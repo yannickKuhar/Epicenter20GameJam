@@ -16,6 +16,7 @@ TagManager:
   - Ground
   - DraggableObject
   - Sword
+  - Enemy
   layers:
   - Default
   - TransparentFX

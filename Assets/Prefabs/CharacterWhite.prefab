@@ -286,7 +286,7 @@ MonoBehaviour:
   horizontalInputName: HorizontalLR
   verticalInputName: VerticalUD
   movementSpeed: 3.5
-  jumpSpeed: 3
+  jumpSpeed: 8
   maxJumpTime: 0.2
   isDragging: 0
   PullControl: 108

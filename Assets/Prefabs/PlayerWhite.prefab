@@ -627,7 +627,7 @@ MonoBehaviour:
   player: {fileID: 7109684045332397804}
   bullet: {fileID: 6116072481632841115, guid: f8cf0f23eb868c0d2b56b3a9d84d37f7, type: 3}
   bulletSpawnPoint: {fileID: 7109684044159957220}
-  fireButton: 306
+  fireButton: 303
   bulletSpeed: 10
   bulletCount: 5
 --- !u!114 &-8394886452441053312

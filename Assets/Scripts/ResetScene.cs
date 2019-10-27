@@ -16,13 +16,13 @@ public class ResetScene : MonoBehaviour
 
   void Update()
   {
-		if (GameObject.Find("PlayerWhite") == null)
+		if (GameObject.Find("CharacterWhite") == null)
 		{
 			white.text = whiteStr;
 			StartCoroutine(Reset(white));
 		}
 		
-		if (GameObject.Find("PlayerBlack") == null)
+		if (GameObject.Find("CharacterBlack") == null)
 		{
 			black.text = blackStr;
 			StartCoroutine(Reset(black));

@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 5500060699546150553}
   - component: {fileID: 8493588648030911814}
   - component: {fileID: 2390052758152384590}
+  - component: {fileID: 504120492774389611}
   m_Layer: 0
   m_Name: CharacterWhite
   m_TagString: PlayerWhite
@@ -841,13 +842,11 @@ MonoBehaviour:
   horizontalInputName: HorizontalLR
   verticalInputName: VerticalUD
   movementSpeed: 3.5
-  anim: {fileID: 0}
-  jumpKey: 273
   jumpSpeed: 3
-  jumpForce: 1.1
   maxJumpTime: 0.2
   isDragging: 0
   PullControl: 108
+  jumpKey: 273
 --- !u!114 &8493588648030911814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,6 +879,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallMultiplier: 2.75
   lowJumpMultiplier: 2
+--- !u!114 &504120492774389611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8637178960542355776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366fdf74640d59dd5909c328fd03444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8637178960667959846
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DragingObject : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DragingObject : MonoBehaviour
     public GameObject targetPlayer;
     private KeyCode pull;
     private float orgSpeed;
+
+    [SerializeField] private Text blackInfo, whiteInfo;
 
 
     private float myDig;
@@ -48,7 +51,15 @@ public class DragingObject : MonoBehaviour
         {
             Debug.Log("Correct player dragging box");
             targetPlayer = collision.collider.gameObject;
-            //
+            if (targetPlayer.tag == "PlayerWhite")
+            {
+                blackInfo.text = "Hold F to drag.";
+            }
+            if (targetPlayer.tag == "PlayerBlack")
+            {
+
+            }
+
         }                    
 
         if (Input.GetKey(pull) && collision.collider.name == targetPlayer.name  && isDragging == false)

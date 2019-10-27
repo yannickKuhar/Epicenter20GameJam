@@ -25,9 +25,9 @@ public class GroundEnemy : MonoBehaviour
             rb.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         }
         checkJump();
-        if(health < 0)
+        if (health < 0)
         {
-           Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -37,7 +37,7 @@ public class GroundEnemy : MonoBehaviour
     }
 
     private void move()
-    { 
+    {
         transform.Translate(direction * bossSpeed * Time.deltaTime);
     }
 
@@ -74,7 +74,8 @@ public class GroundEnemy : MonoBehaviour
             health -= 1;
         }
     }
-    void OnCollisionEnter(Collision collision)
+    
+		void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {

@@ -15,7 +15,8 @@ public class BulletCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ammo.bulletCount < 5)
+        
+    if (ammo.bulletCount < 5)
         {
             shuriken5.SetActive(false);
             if (ammo.bulletCount < 4)

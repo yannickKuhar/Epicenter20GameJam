@@ -202,6 +202,11 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6772087435438010612, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: nextLvl
+      value: Level4
+      objectReference: {fileID: 0}
     - target: {fileID: 6772087433512684952, guid: b46b0e39fc236a944807178888eea1e6,
         type: 3}
       propertyPath: whiteInfo
@@ -507,6 +512,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876153017426857688, guid: 4dc66647d10e6ae4e9adc888581dad64,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876153017426857688, guid: 4dc66647d10e6ae4e9adc888581dad64,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 4680192493590222740, guid: 4dc66647d10e6ae4e9adc888581dad64,
         type: 3}
@@ -3254,6 +3269,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925964916163312101, guid: 0eb776fb3d9f64c49b1ac55e98bb6e38,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925964916163312101, guid: 0eb776fb3d9f64c49b1ac55e98bb6e38,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8637178960542355776, guid: 0eb776fb3d9f64c49b1ac55e98bb6e38,
         type: 3}

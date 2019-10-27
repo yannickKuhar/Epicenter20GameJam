@@ -2755,7 +2755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackCheck: 0
   whiteCheck: 0
-  nextLvl: 
+  nextLvl: win
 --- !u!4 &1799163261
 Transform:
   m_ObjectHideFlags: 0

@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
 		PlayerJump();
 		// Debug.Log("FR: " + facingRight);
   }
-		
 	//////////////////// Player move. ////////////////////
 
 	private void PlayerMovement()

@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D rb;
 
 	private bool facingRight = true;
-
+	
+	public KeyCode jumpKey;
 	private bool isJumping = false;
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 	private float height;
 
 
-    //////////////////// Unity main functions. ////////////////////
+  //////////////////// Unity main functions. ////////////////////
 
   void Awake()
   {
@@ -40,7 +41,11 @@ public class PlayerController : MonoBehaviour
   void Update()
   {
 		PlayerMovement();
-		PlayerJump();
+
+		if (Input.GetKeyDown(jumpKey))
+		{
+			PlayerJump();
+		}
   }
 		
 	//////////////////// Player move. ////////////////////

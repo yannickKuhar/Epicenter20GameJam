@@ -13,8 +13,7 @@ public class PlayGame : MonoBehaviour
     public void PlayClick()
     {
         levelCount = 1;
-        SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
-        QuickMenu.SetActive(false);
+        SceneManager.LoadScene("Level1");
     }
 
     private void Update()

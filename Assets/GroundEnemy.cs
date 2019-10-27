@@ -75,6 +75,7 @@ public class GroundEnemy : MonoBehaviour
         }
     }
     
+		/*
 		void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -86,4 +87,5 @@ public class GroundEnemy : MonoBehaviour
             Physics.IgnoreCollision(theobjectToIgnore.collider, GetComponent<Collider>());
         }
     }
+		*/
 }

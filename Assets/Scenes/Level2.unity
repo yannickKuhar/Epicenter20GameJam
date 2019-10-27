@@ -1896,8 +1896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackCheck: 0
   whiteCheck: 0
-  nextLvl: 
-  currentLvl: 0
+  nextLvl: level3
 --- !u!4 &1799163261
 Transform:
   m_ObjectHideFlags: 0
@@ -2060,6 +2059,11 @@ PrefabInstance:
       propertyPath: white
       value: 
       objectReference: {fileID: 2002855295}
+    - target: {fileID: 9094023385365537510, guid: 8c69aadea6c6e55a09be59315d87466c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c69aadea6c6e55a09be59315d87466c, type: 3}
 --- !u!1001 &1911759621

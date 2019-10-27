@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loader: {fileID: 3944770244802671268}
+  blackInfo: {fileID: 0}
+  whiteInfo: {fileID: 0}
 --- !u!1 &3944770244802671267
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackCheck: 0
   whiteCheck: 0
-  currentLvl: 0
+  nextLvl: 
 --- !u!1 &3944770245553311702
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,3 +192,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loader: {fileID: 3944770244802671268}
+  blackInfo: {fileID: 0}
+  whiteInfo: {fileID: 0}

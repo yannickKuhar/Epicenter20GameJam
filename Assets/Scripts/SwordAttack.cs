@@ -36,7 +36,7 @@ public class SwordAttack : MonoBehaviour
 		sword.transform.position = goal;
 
 		SoundManager.Instance.PlayOneShot (SoundManager.Instance.swipe);
-
+		
 		StartCoroutine(ResetSword());
 	}
 

@@ -10,7 +10,6 @@ public class WinLoader : MonoBehaviour
 
     public string nextLvl;
 
-
     public static int currentLvl;
 
     public void Start()
@@ -23,9 +22,10 @@ public class WinLoader : MonoBehaviour
         if (blackCheck && whiteCheck)
         {
             Debug.Log("Load next lvl");
-            SceneManager.LoadScene(nextLvl, LoadSceneMode.Additive);
-            WinLoader.currentLvl++;
-            SceneManager.UnloadSceneAsync(currentLvl);            
+						SceneManager.LoadScene(nextLvl);
+            // SceneManager.LoadScene(nextLvl, LoadSceneMode.Additive);
+            // WinLoader.currentLvl++;
+            // SceneManager.UnloadSceneAsync(currentLvl);            
         }
     }
 }

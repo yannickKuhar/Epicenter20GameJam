@@ -23,5 +23,11 @@ public class GoUp : MonoBehaviour
             up = true;
             animator.SetTrigger("BoxGoUp");
         }
+
+        if (up & !triggerButton.GetComponent<BasicButtonPress>().pressed)
+        {
+            up = false;
+            animator.SetTrigger("BoxGoDown");
+        }
     }
 }

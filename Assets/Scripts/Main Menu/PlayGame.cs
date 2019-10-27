@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour
 {
+    public static int levelCount = 1;
+    
     public void PlayClick()
     {
-        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
     }    
 }

@@ -12,7 +12,7 @@ public class SwordAttack : MonoBehaviour
 	public float distance = 1.0f;
 	
   void Update()
-  {
+  {	
 		if (Input.GetKeyDown(attackKey))
 		{
 			Attack();
@@ -21,12 +21,11 @@ public class SwordAttack : MonoBehaviour
 
 	private void Attack()
 	{
-		Vector3 start = new Vector3(sword.transform.position.x, sword.transform.position.y, sword.transform.position.z);
-
 		Vector3 goal;
 		
 		if (player.GetFacingRight())
 		{
+			Debug.Log("yes");
 			goal = new Vector3(sword.transform.position.x + distance, sword.transform.position.y, sword.transform.position.z);
 		}
 		else
@@ -36,10 +35,10 @@ public class SwordAttack : MonoBehaviour
 
 		sword.transform.position = goal;
 
-		StartCoroutine(Example(start));
+		StartCoroutine(ResetSword());
 	}
 
-	IEnumerator Example(Vector3 start)
+	IEnumerator ResetSword()
   {
     yield return new WaitForSeconds(0.05f);
     // print(Time.time);

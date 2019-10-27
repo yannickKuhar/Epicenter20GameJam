@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	private bool isJumping = false;
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
+	public float jumpForce = 1.1f;
 	public float maxJumpTime = 0.2f;
 
   public bool isDragging = false;
@@ -41,8 +42,10 @@ public class PlayerController : MonoBehaviour
   void Update()
   {
 		PlayerMovement();
+		
+		Debug.Log(isJumping);
 
-		if (Input.GetKeyDown(jumpKey))
+		if (Input.GetKeyDown(jumpKey) && !isJumping)
 		{
 			PlayerJump();
 		}
@@ -86,11 +89,9 @@ public class PlayerController : MonoBehaviour
 
 	private void PlayerJump()
 	{
-		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
+		float vertInput = jumpForce * jumpSpeed + 1;
 
-		// Debug.Log(vertInput);
-
-		if (IsOnGround () && isJumping == false && isDragging == false)
+		if (IsOnGround() && isJumping == false && isDragging == false)
 		{
 			if (vertInput > 0f)
 			{
@@ -116,6 +117,11 @@ public class PlayerController : MonoBehaviour
 		{
 			isJumping = false;
 			jumpButtonPressTime = 0f;
+		}
+
+		if (IsOnGround() && isJumping)
+		{
+			isJumping = false;
 		}
 	}
 

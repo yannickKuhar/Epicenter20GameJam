@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
   {
 		PlayerMovement();
 		PlayerJump();
-  }
+    }
 		
 	//////////////////// Player move. ////////////////////
 

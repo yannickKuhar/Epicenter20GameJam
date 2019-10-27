@@ -151,8 +151,9 @@ GameObject:
   - component: {fileID: 8264290436490867670}
   - component: {fileID: 8264290436490867667}
   - component: {fileID: 7058831536122180251}
+  - component: {fileID: 2869367288030786526}
   m_Layer: 9
-  m_Name: BlackPlayer
+  m_Name: PlayerBlack
   m_TagString: PlayerBlack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,8 +213,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c79ab7bb82a756076a9c0bac1703eb7d, type: 3}
-  m_Color: {r: 0.0754717, g: 0.0028479865, b: 0.0028479865, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7ec6117935e1a62468331d5ba232982e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -257,18 +258,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.13046074, y: -0.14495635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6424408, y: 1.7100873}
   m_EdgeRadius: 0
 --- !u!114 &8264290436490867667
 MonoBehaviour:
@@ -284,11 +285,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInputName: HorizontalLR
   verticalInputName: VerticalUD
-  movementSpeed: 5
-  jumpSpeed: 5
+  movementSpeed: 2.5
+  jumpSpeed: 3
   maxJumpTime: 0.2
   isDragging: 0
-  PullControl: 
+  PullControl: 102
 --- !u!114 &7058831536122180251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,3 +307,17 @@ MonoBehaviour:
   sword: {fileID: 8122046608065782367}
   swordPoint: {fileID: 8122046608056580027}
   distance: 0.58
+--- !u!114 &2869367288030786526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264290436490867672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1227a4163d8aecc54883356537bc72c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 2.75
+  lowJumpMultiplier: 2

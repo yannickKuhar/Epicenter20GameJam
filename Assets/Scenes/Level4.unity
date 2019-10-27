@@ -291,6 +291,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7125236360907196878, guid: 8ca88c024c377dd41bf836891e42ed70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7125236360907196872, guid: 8ca88c024c377dd41bf836891e42ed70,
         type: 3}
       propertyPath: m_SortingOrder
@@ -2269,7 +2274,7 @@ Transform:
   m_Children:
   - {fileID: 395636257}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1743321657
 PrefabInstance:

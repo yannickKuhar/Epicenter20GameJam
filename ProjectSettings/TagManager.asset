@@ -17,6 +17,7 @@ TagManager:
   - DraggableObject
   - Sword
   - Enemy
+  - Flocker
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Player
   - Enemies
   - DraggableBox
-  - 
+  - Sword
   - 
   - 
   - 

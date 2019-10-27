@@ -53,21 +53,21 @@ public class DragingObject : MonoBehaviour
             targetPlayer = collision.collider.gameObject;
             if (targetPlayer.tag == "PlayerWhite")
             {
-                blackInfo.text = "Hold F to drag.";
+                whiteInfo.text = "Hold L to drag.";
             }
             if (targetPlayer.tag == "PlayerBlack")
             {
-
+                blackInfo.text = "Hold F to drag.";
             }
 
         }                    
 
-        if (Input.GetKey(pull) && collision.collider.name == targetPlayer.name  && isDragging == false)
+        if (Input.GetKey(pull) && collision.collider.tag == targetPlayer.tag  && isDragging == false)
         {
             Vector3 contactPoint = collision.contacts[0].point;
             Vector3 center = collision.collider.bounds.center;
             Debug.Log("Ali imama prav?");
-            if (myDig < playerDig)
+            // if (myDig < playerDig)
                 Dragging();            
         }
     }

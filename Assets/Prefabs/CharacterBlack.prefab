@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 2876153017170374921}
   m_Layer: 8
   m_Name: Sword
-  m_TagString: Player
+  m_TagString: PlayerBlack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

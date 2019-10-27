@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     //////////////////// Unity main functions. ////////////////////
 
-    void Awake()
+  void Awake()
   {
 		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
 		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
@@ -135,7 +135,17 @@ public class PlayerController : MonoBehaviour
 	{
 		return facingRight;
 	}
+	
+	//////////////////// Collisions. ////////////////////
+	void OnCollisionEnter2D(Collision2D collision)
+  {
+		if (collision.gameObject.tag == "Wall")
+		{
+			Debug.Log("coll");
+			rb.velocity = new Vector2(-2, 0);
+		}
+	}
 
-    /////////////////// Win conditions //////////////
+  /////////////////// Win conditions //////////////
 
 }

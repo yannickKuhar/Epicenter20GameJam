@@ -253,7 +253,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8264290436490867672}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b6adee44d68ceb598b7609d5fe5649e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  attackKey: 0
+  attackKey: 303
   sword: {fileID: 8122046608065782367}
   swordPoint: {fileID: 8122046608056580027}
   distance: 0.58

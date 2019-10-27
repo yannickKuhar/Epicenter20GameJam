@@ -198,7 +198,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7109684045332397799}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b6adee44d68ceb598b7609d5fe5649e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -232,6 +232,8 @@ MonoBehaviour:
   movementSpeed: 3.5
   jumpSpeed: 6.5
   maxJumpTime: 0.2
+  isDragging: 0
+  PullControl: 
 --- !u!114 &7109684045332397805
 MonoBehaviour:
   m_ObjectHideFlags: 0

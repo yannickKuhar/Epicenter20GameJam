@@ -12,6 +12,9 @@ TagManager:
   - WinChecker
   - DraggableBlack
   - DraggableWhite
+  - DraggableObject
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

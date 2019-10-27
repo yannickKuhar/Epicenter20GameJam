@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-  public string horizontalInputName;
+    public string horizontalInputName;
 	public string verticalInputName;
 
 	public float movementSpeed = 5.0f;
 
 	private Rigidbody2D rb;
+    [SerializeField] Animator anim;
 
 	private bool facingRight = true;
 	
@@ -20,8 +21,8 @@ public class PlayerController : MonoBehaviour
 	public float jumpForce = 1.1f;
 	public float maxJumpTime = 0.2f;
 
-  public bool isDragging = false;
-  public KeyCode PullControl;
+    public bool isDragging = false;
+    public KeyCode PullControl;
 	
 	private float rayCastLength = 0.005f;
 	
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
 		PlayerMovement();
 		
 		Debug.Log(isJumping);
+
+        float movmentTime = rb.velocity.magnitude;
+        anim.SetFloat("Velocity", movmentTime);
 
 		if (Input.GetKeyDown(jumpKey) && !isJumping)
 		{

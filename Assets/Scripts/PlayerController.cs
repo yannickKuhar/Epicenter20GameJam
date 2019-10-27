@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public string horizontalInputName;
+  public string horizontalInputName;
 	public string verticalInputName;
 
 	public float movementSpeed = 5.0f;
@@ -18,11 +18,9 @@ public class PlayerController : MonoBehaviour
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
 
-    public bool isDragging = false;
-    public string PullControl;
+  public bool isDragging = false;
+  public string PullControl;
 	
-	public KeyCode jumpKey;
-		
 	private float rayCastLength = 0.005f;
 	
 	private float width;

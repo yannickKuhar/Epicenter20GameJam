@@ -16,6 +16,7 @@ public class BulletFire : MonoBehaviour
 	{
 		if (bulletCount > 0)
 		{
+			// Debug.Log("fire");
 			FireBullet();
 		}
 	}

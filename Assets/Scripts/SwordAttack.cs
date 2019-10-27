@@ -42,7 +42,7 @@ public class SwordAttack : MonoBehaviour
 	IEnumerator Example(Vector3 start)
   {
     yield return new WaitForSeconds(0.05f);
-    print(Time.time);
+    // print(Time.time);
 		sword.transform.position = swordPoint.transform.position;
   }
 }

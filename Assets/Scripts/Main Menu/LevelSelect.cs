@@ -9,12 +9,10 @@ public class LevelSelect : MonoBehaviour
 {
     private int completedLvl;
     private string thisLevel;
-    public GameObject QuickMenu;
 
     public void SelectLevel()
     {
-        SceneManager.LoadScene("Level" + thisLevel, LoadSceneMode.Additive);
-        QuickMenu.GetComponent<Transform>().gameObject.SetActive(false);
+        SceneManager.LoadScene("Level" + thisLevel);
         WinLoader.currentLvl = Convert.ToInt32(this.GetComponentInChildren<Text>().text);
     }
 

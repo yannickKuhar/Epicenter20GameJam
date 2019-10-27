@@ -74,4 +74,16 @@ public class GroundEnemy : MonoBehaviour
             health -= 1;
         }
     }
+    
+		void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics.IgnoreCollision(theobjectToIgnore.collider, GetComponent<Collider>());
+        }
+        if (collision.gameObject.tag == "enemy")
+        {
+            Physics.IgnoreCollision(theobjectToIgnore.collider, GetComponent<Collider>());
+        }
+    }
 }

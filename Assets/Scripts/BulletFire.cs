@@ -30,6 +30,7 @@ public class BulletFire : MonoBehaviour
 			GameObject projectile = Instantiate(bullet, bulletSpawnPoint.transform.position, Quaternion.identity);
 			Rigidbody2D projRB = projectile.GetComponent<Rigidbody2D>();
 			
+			SoundManager.Instance.PlayOneShot (SoundManager.Instance.sThrow);
 			if (player.GetFacingRight())
 			{
 				projRB.velocity = Vector2.right * bulletSpeed;

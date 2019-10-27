@@ -25,9 +25,9 @@ public class GroundEnemy : MonoBehaviour
             rb.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         }
         checkJump();
-        if(health < 0)
+        if (health < 0)
         {
-           Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -37,7 +37,7 @@ public class GroundEnemy : MonoBehaviour
     }
 
     private void move()
-    { 
+    {
         transform.Translate(direction * bossSpeed * Time.deltaTime);
     }
 
@@ -65,6 +65,11 @@ public class GroundEnemy : MonoBehaviour
                 direction = Vector2.left;
             }
         }
+        else if (collision.CompareTag("Enemy"))
+        {
+            Debug.Log("enemy encountered");
+            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
+        }
         else if (collision.CompareTag("Sword"))
         {
             health -= 2;
@@ -74,14 +79,15 @@ public class GroundEnemy : MonoBehaviour
             health -= 1;
         }
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Physics.IgnoreCollision(theobjectToIgnore.collider, collider);
-        }
-        if (collision.gameObject.tag == "enemy")
-        {
-            Physics.IgnoreCollision(theobjectToIgnore.collider, collider);
-        }
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        Physics.IgnoreCollision(theobjectToIgnore.collider, collider);
+    //    }
+    //    if (collision.gameObject.tag == "enemy")
+    //    {
+    //        Physics.IgnoreCollision(theobjectToIgnore.collider, collider);
+    //    }
+    //}
+}

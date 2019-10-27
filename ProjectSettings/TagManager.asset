@@ -10,6 +10,8 @@ TagManager:
   - WinBlack
   - WinWhite
   - WinChecker
+  - DraggableBlack
+  - DraggableWhite
   layers:
   - Default
   - TransparentFX

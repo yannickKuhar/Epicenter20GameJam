@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2833117833050204730}
   - component: {fileID: 2833117833050204733}
   - component: {fileID: 2833117833050204732}
+  - component: {fileID: 7901789100453326887}
   m_Layer: 0
   m_Name: BlackButtonTop
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
   buddyButton: {fileID: 2833117834622186638}
   objColor: Black
   interactibleByBoth: 0
+  goesBackUp: 0
   pressed: 0
 --- !u!114 &2833117833050204733
 MonoBehaviour:
@@ -172,6 +174,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.45}
   m_EdgeRadius: 0
+--- !u!50 &7901789100453326887
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833117833050204729}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2833117833249324001
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +206,7 @@ GameObject:
   - component: {fileID: 2833117833249324003}
   - component: {fileID: 2833117833249324002}
   m_Layer: 0
-  m_Name: BlackButtonPair
+  m_Name: ButtonPairBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,6 +496,7 @@ GameObject:
   - component: {fileID: 2833117834622186638}
   - component: {fileID: 2833117834622186865}
   - component: {fileID: 2833117834622186864}
+  - component: {fileID: 878403984087631520}
   m_Layer: 0
   m_Name: BlackButtonBottom
   m_TagString: Untagged
@@ -514,6 +538,7 @@ MonoBehaviour:
   buddyButton: {fileID: 2833117833050204730}
   objColor: Black
   interactibleByBoth: 0
+  goesBackUp: 0
   pressed: 0
 --- !u!114 &2833117834622186865
 MonoBehaviour:
@@ -553,3 +578,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.45}
   m_EdgeRadius: 0
+--- !u!50 &878403984087631520
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833117834622186637}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

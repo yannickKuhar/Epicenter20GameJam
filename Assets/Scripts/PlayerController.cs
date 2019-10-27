@@ -13,20 +13,22 @@ public class PlayerController : MonoBehaviour
 
 	private bool facingRight = true;
 
-	private bool isJumping = false;
+	public bool isJumping = false;
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
 
     public bool isDragging = false;
-    public string PullControl;
-	
+    
+    
+    public KeyCode PullControl;
 	public KeyCode jumpKey;
 		
 	private float rayCastLength = 0.005f;
 	
 	private float width;
 	private float height;
+    private float horizInput;
 
 
     //////////////////// Unity main functions. ////////////////////
@@ -39,33 +41,42 @@ public class PlayerController : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
   }
 
-  void Update()
+    void Update()
   {
 		PlayerMovement();
 		PlayerJump();
   }
-		
-	//////////////////// Player move. ////////////////////
+    private void FixedUpdate()
+    {
+        PerformMove(horizInput);
+        PerformJump();
+    }
 
-	private void PlayerMovement()
-	{
-		float horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
+    //////////////////// Player move. ////////////////////
 
-		Vector2 vect = rb.velocity;
- 
-		rb.velocity = new Vector2 (horizInput * movementSpeed, vect.y);
+    private void PlayerMovement()
+    {
+        horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
 
-		if (horizInput > 0 && !facingRight)
-		{
-			FlipPlayer();
-		}
-		else if (horizInput < 0 && facingRight)
-		{
-			FlipPlayer();
-		}
-	}
-	
-	void FlipPlayer()
+
+        if (horizInput > 0 && !facingRight)
+        {
+            FlipPlayer();
+        }
+        else if (horizInput < 0 && facingRight)
+        {
+            FlipPlayer();
+        }
+    }
+
+    private void PerformMove(float horizInput)
+    {
+        Vector2 vect = rb.velocity;
+
+        rb.velocity = new Vector2(horizInput * movementSpeed, vect.y);
+    }
+
+    void FlipPlayer()
 	{
 
 		if (isDragging == false)
@@ -82,41 +93,42 @@ public class PlayerController : MonoBehaviour
 	//////////////////// Player jump. ////////////////////
 
 	private void PlayerJump()
-	{
-		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
+    {
+        float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
 
-		// Debug.Log(vertInput);
+        if (IsOnGround() && isJumping == false && isDragging == false)
+        {
+            if (vertInput > 0f)
+            {
+                isJumping = true;
+            }
+        }
 
-		if (IsOnGround () && isJumping == false && isDragging == false)
-		{
-			if (vertInput > 0f)
-			{
-				isJumping = true;
-			}
-		}
+        if (jumpButtonPressTime > maxJumpTime)
+        {
+            vertInput = 0f;
+        }
 
-		if (jumpButtonPressTime > maxJumpTime)
-		{
-			vertInput = 0f;
-		}
- 
-		if (isJumping && (jumpButtonPressTime <= maxJumpTime))
-		{
-			rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
-		}
- 
-		if (vertInput >= 1f)
-		{
-			jumpButtonPressTime += Time.deltaTime;
-		}
-		else
-		{
-			isJumping = false;
-			jumpButtonPressTime = 0f;
-		}
-	}
+        if (vertInput >= 1f)
+        {
+            jumpButtonPressTime += Time.deltaTime;
+        }
+        else
+        {
+            isJumping = false;
+            jumpButtonPressTime = 0f;
+        }
+    }
 
-	public bool IsOnGround()
+    private void PerformJump()
+    {
+        if (isJumping && (jumpButtonPressTime <= maxJumpTime))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+    }
+
+    public bool IsOnGround()
 	{
 		bool groundCheckDown = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y - height), -Vector2.up, rayCastLength);
  

@@ -15,17 +15,25 @@ public class BasicButtonPress : MonoBehaviour
     [Header("Interaction Settings")]
     [SerializeField] private string objColor;
     public bool interactibleByBoth;
+    public bool goesBackUp;
     
     [Header("Stats")]
     public bool pressed = false;
-    
 
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {        
+    {
+        Debug.Log(collision);
         if (collision.gameObject.tag == "Player" + objColor)
         {
             Debug.Log("Player is on the button, drop down.");
+            ButtonGoesDown();
+            pressed = true;
+            buddyButton.gameObject.GetComponent<BasicButtonPress>().pressed = true;
+        }
+        if (collision.gameObject.tag == "Draggable" + objColor)
+        {
+            Debug.Log("Draggable Object is on top");
             ButtonGoesDown();
             pressed = true;
             buddyButton.gameObject.GetComponent<BasicButtonPress>().pressed = true;
@@ -44,12 +52,16 @@ public class BasicButtonPress : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PlayerWhite" || collision.gameObject.tag == "PlayerBlack")
+        if (goesBackUp)
         {
-            Debug.Log("Player is off the button.");
-            ButtonGoesUp();
-            pressed = false;
-        }    
+            if (collision.gameObject.tag == "PlayerWhite" || collision.gameObject.tag == "PlayerBlack")
+            {
+                Debug.Log("Player is off the button.");
+                ButtonGoesUp();
+                pressed = false;
+            }
+
+        }
     }
 
     private void ButtonGoesDown()

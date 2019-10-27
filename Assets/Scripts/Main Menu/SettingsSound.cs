@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class SettingsSound : MonoBehaviour
 {
     public AudioMixer volumeAudio;
+    public Slider volumeSlider;
     
-    void UpdateSoundSettings()
+    public void UpdateSoundSettings()
     {
-        volumeAudio.SetFloat("Master", this.gameObject.GetComponent<Scrollbar>().value);
+        volumeAudio.SetFloat("Master", -80 + volumeSlider.value * 100);
     }
 }

@@ -8,6 +8,7 @@ public class GroundEnemy : MonoBehaviour
     private Vector2 direction = Vector2.left;
     private bool grounded;
     private Rigidbody2D rb;
+    private int health = 10;
 
 
     private void Start()
@@ -24,11 +25,15 @@ public class GroundEnemy : MonoBehaviour
             rb.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         }
         checkJump();
+        if(health < 0)
+        {
+           Destroy(gameObject);
+        }
     }
 
     private void checkJump()
     {
-        grounded = Physics.Raycast(transform.position, Vector2.down, 0.1f);
+        grounded = Physics.Raycast(transform.position, Vector2.down, 0.005f);
     }
 
     private void move()
@@ -60,8 +65,13 @@ public class GroundEnemy : MonoBehaviour
                 direction = Vector2.left;
             }
         }
+        else if (collision.CompareTag("Sword"))
+        {
+            health -= 2;
+        }
+        else if (collision.CompareTag("Bullet"))
+        {
+            health -= 1;
+        }
     }
-
- 
-
 }

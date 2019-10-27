@@ -12,9 +12,10 @@ TagManager:
   - WinChecker
   - DraggableBlack
   - DraggableWhite
-  - DraggableObject
-  - Enemy
+  - Bullet
   - Ground
+  - DraggableObject
+  - Sword
   layers:
   - Default
   - TransparentFX

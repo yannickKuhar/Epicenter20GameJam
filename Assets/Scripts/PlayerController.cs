@@ -10,49 +10,40 @@ public class PlayerController : MonoBehaviour
 	public float movementSpeed = 5.0f;
 
 	private Rigidbody2D rb;
-    [SerializeField] Animator anim;
 
 	private bool facingRight = true;
-	
-	public KeyCode jumpKey;
+
 	private bool isJumping = false;
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
-	public float jumpForce = 1.1f;
 	public float maxJumpTime = 0.2f;
 
     public bool isDragging = false;
     public KeyCode PullControl;
-	
-	private float rayCastLength = 0.005f;
+
+    public KeyCode jumpKey;
+
+    private float rayCastLength = 0.005f;
 	
 	private float width;
 	private float height;
+    private bool frozen = false;
 
 
-  //////////////////// Unity main functions. ////////////////////
+    //////////////////// Unity main functions. ////////////////////
 
-  void Awake()
+   void Awake()
   {
 		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
 		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
 
-		rb = GetComponent<Rigidbody2D>();
+	    rb = GetComponent<Rigidbody2D>();
   }
 
   void Update()
   {
 		PlayerMovement();
-		
-		Debug.Log(isJumping);
-
-        float movmentTime = rb.velocity.magnitude;
-        anim.SetFloat("Velocity", movmentTime);
-
-		if (Input.GetKeyDown(jumpKey) && !isJumping)
-		{
-			PlayerJump();
-		}
+		PlayerJump();
   }
 		
 	//////////////////// Player move. ////////////////////
@@ -74,28 +65,32 @@ public class PlayerController : MonoBehaviour
 			FlipPlayer();
 		}
 	}
-	
-	void FlipPlayer()
-	{
 
-		if (isDragging == false)
+    void FlipPlayer()
     {
-			// Flip the facing value
-      facingRight = !facingRight;
+        if (!frozen)
+        {
+            if (isDragging == false)
+            {
+                // Flip the facing value
+                facingRight = !facingRight;
 
-      Vector3 scale = transform.localScale;
-      scale.x *= -1;
-      transform.localScale = scale;
-    }		
-	}
- 
-	//////////////////// Player jump. ////////////////////
+                Vector3 scale = transform.localScale;
+                scale.x *= -1;
+                transform.localScale = scale;
+            }
+        }
+    }
 
-	private void PlayerJump()
+    //////////////////// Player jump. ////////////////////
+
+    private void PlayerJump()
 	{
-		float vertInput = jumpForce * jumpSpeed + 1;
+		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
 
-		if (IsOnGround() && isJumping == false && isDragging == false)
+		// Debug.Log(vertInput);
+
+		if (IsOnGround () && isJumping == false && isDragging == false)
 		{
 			if (vertInput > 0f)
 			{
@@ -122,11 +117,6 @@ public class PlayerController : MonoBehaviour
 			isJumping = false;
 			jumpButtonPressTime = 0f;
 		}
-
-		if (IsOnGround() && isJumping)
-		{
-			isJumping = false;
-		}
 	}
 
 	public bool IsOnGround()
@@ -145,12 +135,32 @@ public class PlayerController : MonoBehaviour
 		return false; 
 	}
 
-	//////////////////// Getters. ////////////////////
-	public bool GetFacingRight()
+    public void unfreeze()
+    {
+        if (frozen)
+        {
+            frozen = false;
+            rb.constraints = (UnityEngine.RigidbodyConstraints2D)RigidbodyConstraints.None;
+        }
+    }
+
+    public void freeze()
+    {
+        Debug.Log("frozen");
+        frozen = true;
+        //Debug.Log(rb.gravityScale);
+        
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //rb.isKinematic = true;
+        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    //////////////////// Getters. ////////////////////
+    public bool GetFacingRight()
 	{
 		return facingRight;
 	}
-	
-  /////////////////// Win conditions //////////////
+
+    /////////////////// Win conditions //////////////
 
 }

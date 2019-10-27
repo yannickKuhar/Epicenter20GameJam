@@ -97,9 +97,8 @@ GameObject:
   - component: {fileID: 7109684045332397801}
   - component: {fileID: 7109684045332397804}
   - component: {fileID: 7109684045332397805}
-  - component: {fileID: 1483226710771463748}
   m_Layer: 9
-  m_Name: PlayerWhite
+  m_Name: WhitePlayer
   m_TagString: PlayerWhite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7109684045332397799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.42, y: 2.1857731, z: 0}
+  m_LocalPosition: {x: -4.81, y: 2.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7109684044159957221}
@@ -158,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07bac3e02763238428c93ee95b392213, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c79ab7bb82a756076a9c0bac1703eb7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -199,7 +198,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7109684045332397799}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b6adee44d68ceb598b7609d5fe5649e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -207,14 +206,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7109684045332397804
 MonoBehaviour:
@@ -228,15 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a4bcbcef746e7d89146a8b0c1a7f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInputName: HorizontalLR
-  verticalInputName: VerticalUD
+  horizontalInputName: HorizontalAD
+  verticalInputName: VerticalWS
   movementSpeed: 3.5
-  isJumping: 0
-  jumpSpeed: 3
+  jumpSpeed: 6.5
   maxJumpTime: 0.2
   isDragging: 0
-  PullControl: 108
-  jumpKey: 273
+  PullControl: 
 --- !u!114 &7109684045332397805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,20 +252,6 @@ MonoBehaviour:
   fireButton: 306
   bulletSpeed: 10
   bulletCount: 5
---- !u!114 &1483226710771463748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7109684045332397799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1227a4163d8aecc54883356537bc72c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallMultiplier: 2.75
-  lowJumpMultiplier: 2
 --- !u!1001 &6459402714418201696
 PrefabInstance:
   m_ObjectHideFlags: 0

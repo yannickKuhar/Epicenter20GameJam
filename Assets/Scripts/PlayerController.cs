@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public string horizontalInputName;
+  public string horizontalInputName;
 	public string verticalInputName;
 
 	public float movementSpeed = 5.0f;
@@ -13,27 +13,23 @@ public class PlayerController : MonoBehaviour
 
 	private bool facingRight = true;
 
-	public bool isJumping = false;
+	private bool isJumping = false;
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
 
-    public bool isDragging = false;
-    
-    
-    public KeyCode PullControl;
-	public KeyCode jumpKey;
-		
+  public bool isDragging = false;
+  public string PullControl;
+	
 	private float rayCastLength = 0.005f;
 	
 	private float width;
 	private float height;
-    private float horizInput;
 
 
     //////////////////// Unity main functions. ////////////////////
 
-    void Awake()
+  void Awake()
   {
 		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
 		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
@@ -41,42 +37,33 @@ public class PlayerController : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
   }
 
-    void Update()
+  void Update()
   {
 		PlayerMovement();
 		PlayerJump();
   }
-    private void FixedUpdate()
-    {
-        PerformMove(horizInput);
-        PerformJump();
-    }
+		
+	//////////////////// Player move. ////////////////////
 
-    //////////////////// Player move. ////////////////////
+	private void PlayerMovement()
+	{
+		float horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
 
-    private void PlayerMovement()
-    {
-        horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
+		Vector2 vect = rb.velocity;
+ 
+		rb.velocity = new Vector2 (horizInput * movementSpeed, vect.y);
 
-
-        if (horizInput > 0 && !facingRight)
-        {
-            FlipPlayer();
-        }
-        else if (horizInput < 0 && facingRight)
-        {
-            FlipPlayer();
-        }
-    }
-
-    private void PerformMove(float horizInput)
-    {
-        Vector2 vect = rb.velocity;
-
-        rb.velocity = new Vector2(horizInput * movementSpeed, vect.y);
-    }
-
-    void FlipPlayer()
+		if (horizInput > 0 && !facingRight)
+		{
+			FlipPlayer();
+		}
+		else if (horizInput < 0 && facingRight)
+		{
+			FlipPlayer();
+		}
+	}
+	
+	void FlipPlayer()
 	{
 
 		if (isDragging == false)
@@ -93,42 +80,41 @@ public class PlayerController : MonoBehaviour
 	//////////////////// Player jump. ////////////////////
 
 	private void PlayerJump()
-    {
-        float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
+	{
+		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
 
-        if (IsOnGround() && isJumping == false && isDragging == false)
-        {
-            if (vertInput > 0f)
-            {
-                isJumping = true;
-            }
-        }
+		// Debug.Log(vertInput);
 
-        if (jumpButtonPressTime > maxJumpTime)
-        {
-            vertInput = 0f;
-        }
+		if (IsOnGround () && isJumping == false && isDragging == false)
+		{
+			if (vertInput > 0f)
+			{
+				isJumping = true;
+			}
+		}
 
-        if (vertInput >= 1f)
-        {
-            jumpButtonPressTime += Time.deltaTime;
-        }
-        else
-        {
-            isJumping = false;
-            jumpButtonPressTime = 0f;
-        }
-    }
+		if (jumpButtonPressTime > maxJumpTime)
+		{
+			vertInput = 0f;
+		}
+ 
+		if (isJumping && (jumpButtonPressTime <= maxJumpTime))
+		{
+			rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
+		}
+ 
+		if (vertInput >= 1f)
+		{
+			jumpButtonPressTime += Time.deltaTime;
+		}
+		else
+		{
+			isJumping = false;
+			jumpButtonPressTime = 0f;
+		}
+	}
 
-    private void PerformJump()
-    {
-        if (isJumping && (jumpButtonPressTime <= maxJumpTime))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-        }
-    }
-
-    public bool IsOnGround()
+	public bool IsOnGround()
 	{
 		bool groundCheckDown = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y - height), -Vector2.up, rayCastLength);
  
@@ -149,7 +135,17 @@ public class PlayerController : MonoBehaviour
 	{
 		return facingRight;
 	}
+	
+	//////////////////// Collisions. ////////////////////
+	void OnCollisionEnter2D(Collision2D collision)
+  {
+		if (collision.gameObject.tag == "Wall")
+		{
+			Debug.Log("coll");
+			rb.velocity = new Vector2(-2, 0);
+		}
+	}
 
-    /////////////////// Win conditions //////////////
+  /////////////////// Win conditions //////////////
 
 }

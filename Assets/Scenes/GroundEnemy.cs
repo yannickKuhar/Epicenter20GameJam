@@ -78,10 +78,11 @@ public class GroundEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Physics.IgnoreCollision(theobjectToIgnore.collider, collider);
+            Physics.IgnoreCollision(theobjectToIgnore.collider, GetComponent<Collider>());
         }
         if (collision.gameObject.tag == "enemy")
         {
-            Physics.IgnoreCollision(theobjectToIgnore.collider, collider);
+            Physics.IgnoreCollision(theobjectToIgnore.collider, GetComponent<Collider>());
         }
     }
+}

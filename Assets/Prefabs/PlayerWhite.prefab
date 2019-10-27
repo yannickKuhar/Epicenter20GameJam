@@ -228,9 +228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a4bcbcef746e7d89146a8b0c1a7f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInputName: HorizontalAD
-  verticalInputName: VerticalWS
+  horizontalInputName: HorizontalLR
+  verticalInputName: VerticalUD
   movementSpeed: 3.5
+  jumpKey: 273
   jumpSpeed: 3
   maxJumpTime: 0.2
   isDragging: 0

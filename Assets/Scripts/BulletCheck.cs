@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BulletCheck : MonoBehaviour
 {
-    [SerializeField] private BulletFire ammo;
-    [SerializeField] private GameObject shuriken1, shuriken2, shuriken3, shuriken4, shuriken5;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private BulletFire ammo = default;
+    [SerializeField] private GameObject shuriken1 = default;
+    [SerializeField] private GameObject shuriken2 = default;
+    [SerializeField] private GameObject shuriken3 = default;
+    [SerializeField] private GameObject shuriken4 = default;
+    [SerializeField] private GameObject shuriken5 = default;
 
-    // Update is called once per frame
+
     void Update()
     {
         
@@ -31,14 +30,10 @@ public class BulletCheck : MonoBehaviour
                         if (ammo.bulletCount < 1)
                         {
                             shuriken1.SetActive(false);
-
                         }
-
                     }
-
                 }
             }
-
         }
     }
 }

@@ -13,29 +13,40 @@ public class BasicButtonPress : MonoBehaviour
     public BasicButtonPress buddyButton;
 
     [Header("Interaction Settings")]
-    [SerializeField] private string objColor;
+    [SerializeField] private string objColor = default;
     public bool interactibleByBoth;
     public bool goesBackUp;
     
     [Header("Stats")]
     public bool pressed = false;
+    public bool pressedByBox = false;
+    public bool pressedByPlayer = false;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision);
         if (collision.gameObject.tag == "Player" + objColor)
         {
             Debug.Log("Player is on the button, drop down.");
-            ButtonGoesDown();
+            
+            pressedByPlayer = true;
             pressed = true;
+            pressedByBox = false;
+
+            ButtonGoesDown();
+
             buddyButton.gameObject.GetComponent<BasicButtonPress>().pressed = true;
         }
         if (collision.gameObject.tag == "Draggable" + objColor)
         {
             Debug.Log("Draggable Object is on top");
-            ButtonGoesDown();
+
+            pressedByBox = true;
             pressed = true;
+            pressedByPlayer = false;
+
+
+            ButtonGoesDown();
             buddyButton.gameObject.GetComponent<BasicButtonPress>().pressed = true;
         }
         else if (collision.gameObject.tag == "PlayerWhite" && interactibleByBoth || collision.gameObject.tag == "PlayerBlack" && interactibleByBoth)
@@ -57,10 +68,38 @@ public class BasicButtonPress : MonoBehaviour
             if (collision.gameObject.tag == "PlayerWhite" || collision.gameObject.tag == "PlayerBlack")
             {
                 Debug.Log("Player is off the button.");
-                ButtonGoesUp();
-                pressed = false;
-            }
+                if (pressedByBox)
+                {
+                    Debug.Log("Player is off, but the box stays on. Button stays down.");
+                    return;
+                }
+                
+                if (!pressedByBox)
+                {
+                    ButtonGoesUp();
 
+                    pressedByPlayer = false;
+                    pressed = false;
+                }
+
+            }
+            if (collision.gameObject.tag == "DraggableBlack" || collision.gameObject.tag == "DraggableWhite")
+            {
+                Debug.Log("Box is off the button.");
+                if (pressedByPlayer)
+                {
+                    Debug.Log("Box is off, but the player stays on. Button stays down.");
+                    return;
+                }
+
+                if (!pressedByPlayer)
+                {
+                    ButtonGoesUp();
+
+                    pressedByPlayer = false;
+                    pressed = false;
+                }
+            }
         }
     }
 

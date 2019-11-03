@@ -7,23 +7,16 @@ public class DragingObject : MonoBehaviour
 {
     private bool isDragging = false;
 
-    public GameObject targetPlayer;
+    public PlayerController targetPlayer;
     private KeyCode pull;
     private float orgSpeed;
 
-    [SerializeField] private Text blackInfo, whiteInfo;
-
-
-    private float myDig;
-    private float playerDig;
+    [SerializeField] private Text colorInfo = default;
 
     private void Awake()
     {
         pull = targetPlayer.GetComponent<PlayerController>().PullControl;
-        myDig = transform.lossyScale.x * transform.lossyScale.y;
-        Debug.Log(myDig);
-        playerDig = targetPlayer.transform.lossyScale.x * targetPlayer.transform.lossyScale.y;
-        Debug.Log(playerDig);
+        colorInfo.text = "";
 
     }
 
@@ -36,7 +29,6 @@ public class DragingObject : MonoBehaviour
         targetPlayer.GetComponent<PlayerController>().isDragging = true;
         isDragging = true;
     }
-
     private void StopDragging()
     {
         this.transform.SetParent(null);
@@ -44,20 +36,18 @@ public class DragingObject : MonoBehaviour
         targetPlayer.GetComponent<PlayerController>().isDragging = false;
         isDragging = false;
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(targetPlayer.tag))
         {
             Debug.Log("Correct player dragging box");
-            targetPlayer = collision.collider.gameObject;
             if (targetPlayer.tag == "PlayerWhite")
             {
-                whiteInfo.text = "Hold L to drag.";
+                colorInfo.text = "Hold L to drag.";
             }
             if (targetPlayer.tag == "PlayerBlack")
             {
-                blackInfo.text = "Hold F to drag.";
+                colorInfo.text = "Hold F to drag.";
             }
 
         }                    
@@ -66,9 +56,7 @@ public class DragingObject : MonoBehaviour
         {
             Vector3 contactPoint = collision.contacts[0].point;
             Vector3 center = collision.collider.bounds.center;
-            Debug.Log("Ali imama prav?");
-            // if (myDig < playerDig)
-                Dragging();            
+            Dragging();            
         }
     }
 

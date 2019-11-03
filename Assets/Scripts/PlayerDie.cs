@@ -6,8 +6,7 @@ public class PlayerDie : MonoBehaviour
 {
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log(collision.gameObject.tag);
-		if (collision.gameObject.tag == "Enemy")
+		if (collision.gameObject.tag == "EnemyWhite" || collision.gameObject.tag == "EnemyBlack")
 		{
 			Destroy(gameObject);
 		}

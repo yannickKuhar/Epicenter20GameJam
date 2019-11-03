@@ -10,5 +10,5 @@ public class LevelData
 	public LevelData(int levelsComplete)
 	{
 		levelsComplete = levelsComplete;
-	}
+	} 
 }

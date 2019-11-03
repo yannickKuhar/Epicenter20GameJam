@@ -5,8 +5,8 @@ using UnityEngine;
 public class GoUp : MonoBehaviour
 {
     [Header("Fetcher")]
-    [SerializeField] private BasicButtonPress triggerButton;
-    [SerializeField] private Animator animator;
+    [SerializeField] private BasicButtonPress triggerButton = default;
+    [SerializeField] private Animator animator = default;
     
     [Header("Status")]
     [SerializeField] private bool up;
@@ -19,14 +19,16 @@ public class GoUp : MonoBehaviour
     {
         if (triggerButton.GetComponent<BasicButtonPress>().pressed == true  && !up)
         {
-            Debug.Log("We're in boys");
             up = true;
+            animator.ResetTrigger("BoxGoDown");
             animator.SetTrigger("BoxGoUp");
+            
         }
 
         if (up & !triggerButton.GetComponent<BasicButtonPress>().pressed)
         {
             up = false;
+            animator.ResetTrigger("BoxGoUp");
             animator.SetTrigger("BoxGoDown");
         }
     }

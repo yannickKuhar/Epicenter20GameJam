@@ -9,7 +9,7 @@ public class WinConditionEnter : MonoBehaviour
 {
     [Header("Fethcer")]
     public WinLoader loader;
-    [SerializeField] private Text blackInfo, whiteInfo;
+    [SerializeField] private Text colorInfo;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,14 +18,14 @@ public class WinConditionEnter : MonoBehaviour
         {
             Debug.Log("Player is off the button.");
             loader.gameObject.GetComponent<WinLoader>().blackCheck = true;
-            blackInfo.text = "Black player on check point. Waiting for black.";
+            colorInfo.text = "Black player on check point. Waiting for black.";
             Debug.Log("Black player checked");
         }
         if (collision.gameObject.tag == "PlayerWhite")
         {
             Debug.Log("Player is off the button.");
             loader.gameObject.GetComponent<WinLoader>().whiteCheck = true;
-            whiteInfo.text = "Black player on check point. Waiting for White.";
+            colorInfo.text = "Black player on check point. Waiting for White.";
             Debug.Log("White player checked");
         }
     }
@@ -35,14 +35,14 @@ public class WinConditionEnter : MonoBehaviour
         {
             Debug.Log("Player is off the button.");
             loader.gameObject.GetComponent<WinLoader>().blackCheck = false;
-            blackInfo.text = "";
+            colorInfo.text = "";
             Debug.Log("Black player unchecked");
         }
         if (collision.gameObject.tag == "PlayerWhite")
         {
             Debug.Log("Player is off the button.");
             loader.gameObject.GetComponent<WinLoader>().whiteCheck = false;
-            whiteInfo.text = "";
+            colorInfo.text = "";
             Debug.Log("White player unchecked");
         }
     }

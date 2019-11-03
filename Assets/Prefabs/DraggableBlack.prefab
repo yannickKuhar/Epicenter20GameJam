@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8908732058241867173}
   m_Layer: 11
   m_Name: DraggableBlack
-  m_TagString: DraggableWhite
+  m_TagString: DraggableBlack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,3 +121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 0}
+  colorInfo: {fileID: 0}

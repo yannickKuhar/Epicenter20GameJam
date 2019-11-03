@@ -25,7 +25,6 @@ public class SwordAttack : MonoBehaviour
 		
 		if (player.GetFacingRight())
 		{
-			Debug.Log("yes");
 			goal = new Vector3(sword.transform.position.x + distance, sword.transform.position.y, sword.transform.position.z);
 		}
 		else

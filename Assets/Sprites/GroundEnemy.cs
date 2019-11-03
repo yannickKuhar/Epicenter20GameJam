@@ -8,7 +8,6 @@ public class GroundEnemy : MonoBehaviour
     private Vector2 direction = Vector2.left;
     private bool grounded;
     private Rigidbody2D rb;
-    private int health = 10;
 
 
     private void Start()
@@ -19,16 +18,11 @@ public class GroundEnemy : MonoBehaviour
     private void Update()
     {
         move();
-        if (Mathf.FloorToInt(Random.Range(0.0f, 10000.0f)) < 10)  //makes player jump
+        if (Mathf.FloorToInt(Random.Range(0.0f, 10000.0f)) < 10)  //makes enemy jump
         {
-            Debug.Log(Mathf.FloorToInt(Random.Range(0.0f, 100.0f)));
-            rb.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         }
         checkJump();
-        if (health < 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void checkJump()
@@ -53,7 +47,6 @@ public class GroundEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("enter");
         if (collision.CompareTag("Wall"))
         {
             if (direction.Equals(Vector2.left))
@@ -64,19 +57,6 @@ public class GroundEnemy : MonoBehaviour
             {
                 direction = Vector2.left;
             }
-        }
-        else if (collision.CompareTag("Enemy"))
-        {
-            Debug.Log("enemy encountered");
-            Physics2D.IgnoreCollision(collision, GetComponent<Collider2D>());
-        }
-        else if (collision.CompareTag("Sword"))
-        {
-            health -= 2;
-        }
-        else if (collision.CompareTag("Bullet"))
-        {
-            health -= 1;
         }
     }
 }

@@ -9,7 +9,7 @@ public class ButtonInteractionRules : MonoBehaviour
     public BasicButtonPress BottomButton;
 
     [Header("Interaction Rules")]
-    [SerializeField] private bool bothCanInteract;
+    [SerializeField] private bool bothCanInteract = false;
 
     [Header("Interaction Rules")]
     [SerializeField] private bool bothPressed;

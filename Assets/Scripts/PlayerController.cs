@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     //////////////////// Unity main functions. ////////////////////
 
-   void Awake()
+    void Awake()
   {
 		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
 		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
@@ -40,13 +40,13 @@ public class PlayerController : MonoBehaviour
 	    rb = GetComponent<Rigidbody2D>();
   }
 
-  void Update()
-  {
+    void Update()
+    {
 		PlayerMovement();
 		PlayerJump();
-		// Debug.Log("FR: " + facingRight);
-  }
-	//////////////////// Player move. ////////////////////
+	    // Debug.Log("FR: " + facingRight);
+    }
+	//////////////////// Player move. ////////////////////    TODO: Spremeni celo zadevo, da bo actually responsive movment.
 
 	private void PlayerMovement()
 	{

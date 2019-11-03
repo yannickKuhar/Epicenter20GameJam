@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinChecker : MonoBehaviour
 {
-    [SerializeField] private WinLoader loader;
+    [SerializeField] private WinLoader loader = default;
     [SerializeField] private string playerColor = "Black";
 
     // Update is called once per frame

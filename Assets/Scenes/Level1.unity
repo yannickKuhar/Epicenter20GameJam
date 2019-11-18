@@ -1451,6 +1451,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8833074411486228097, guid: e3fe5a9154b2e23439f64afa4ef24e5a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833074411843402587, guid: e3fe5a9154b2e23439f64afa4ef24e5a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3fe5a9154b2e23439f64afa4ef24e5a, type: 3}
 --- !u!1001 &1186073175409966241
@@ -1529,6 +1539,26 @@ PrefabInstance:
         type: 3}
       propertyPath: colorInfo
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073174002769468, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073175737062721, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: jumpButtonPressTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073175737062783, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915315541387951040, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b46b0e39fc236a944807178888eea1e6, type: 3}

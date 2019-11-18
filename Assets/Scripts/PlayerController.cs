@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
 
 	private bool facingRight = true;
 
-	private bool isJumping = false;
-	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
     private float horizInput = default;
@@ -26,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public KeyCode jumpKey;
     [SerializeField] private float jumpForce = 2;
     [SerializeField] private bool isGrounded;
+    private bool isJumping = false;
+    [SerializeField] private float jumpButtonPressTimerRemember = 0.2f;
+    [SerializeField] private float jumpButtonPressTimer = 0f;
 
     private float rayCastLength = 0.005f;
 	
@@ -38,8 +39,18 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
   {
-		width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
-		height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
+        //not exactly sure zakaj rabita drugačne boundarije ampak it works so ¯\_(ツ)_/¯
+        if (gameObject.tag == "PlayerWhite")
+        {
+            width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
+            height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
+        }
+        if (gameObject.tag == "PlayerBlack")
+        {
+            width = GetComponent<Collider2D>().bounds.extents.x;
+            height = GetComponent<Collider2D>().bounds.extents.y;                                                                   
+        }
+
 
 	    rb = GetComponent<Rigidbody2D>();
   }
@@ -48,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = IsOnGround();
         PlayerMovement();
-		PlayerJump();
+        PlayerJump();
     }
 
     void FixedUpdate()
@@ -71,7 +82,7 @@ public class PlayerController : MonoBehaviour
 			FlipPlayer();
 		}
 	}
-    void FlipPlayer()
+    private void FlipPlayer()
     {
         if (!frozen)
         {
@@ -88,13 +99,18 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerJump()
 	{
-      
-        if (isGrounded && Input.GetKeyDown(jumpKey))
+        jumpButtonPressTimer -= Time.deltaTime;
+        if (Input.GetKeyDown(jumpKey))
         {
-            //rb.AddRelativeForce(Vector2.up * jumpForce);
-            rb.velocity = Vector2.up * jumpForce;
+            jumpButtonPressTimer = jumpButtonPressTimerRemember;
+
         }
-	}
+        if ((jumpButtonPressTimer > 0f) && isGrounded)
+        {
+            jumpButtonPressTimer = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+    }
 
 	public bool IsOnGround()
 	{

@@ -127,6 +127,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2688066672348802314, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: feetPos
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688066672348802314, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: checkRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8045730761324203405, guid: b46b0e39fc236a944807178888eea1e6,
         type: 3}
       propertyPath: m_Name
@@ -249,13 +259,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186073175737062721, guid: b46b0e39fc236a944807178888eea1e6,
         type: 3}
-      propertyPath: jumpSpeed
-      value: 3.9
+      propertyPath: feetPos
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1186073175737062721, guid: b46b0e39fc236a944807178888eea1e6,
         type: 3}
-      propertyPath: movementSpeed
-      value: 3
+      propertyPath: whatIsGround.m_Bits
+      value: 131072
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073175737062721, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: jumpForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073174002769466, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073174002769467, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186073174564036983, guid: b46b0e39fc236a944807178888eea1e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b46b0e39fc236a944807178888eea1e6, type: 3}

@@ -17,11 +17,15 @@ public class PlayerController : MonoBehaviour
 	private float jumpButtonPressTime = 0.0f;
 	public float jumpSpeed = 5.0f;
 	public float maxJumpTime = 0.2f;
+    private float horizInput = default;
 
     public bool isDragging = false;
     public KeyCode PullControl;
 
+    [Header("Jumping Variables")]
     public KeyCode jumpKey;
+    [SerializeField] private float jumpForce = 2;
+    [SerializeField] private bool isGrounded;
 
     private float rayCastLength = 0.005f;
 	
@@ -42,19 +46,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-		PlayerMovement();
+        isGrounded = IsOnGround();
+        PlayerMovement();
 		PlayerJump();
-	    // Debug.Log("FR: " + facingRight);
     }
-	//////////////////// Player move. ////////////////////    TODO: Spremeni celo zadevo, da bo actually responsive movment.
 
-	private void PlayerMovement()
+    void FixedUpdate()
+    {
+        Vector2 vect = rb.velocity;
+        rb.velocity = new Vector2(horizInput * movementSpeed, vect.y);
+    }
+    //////////////////// Player move. ////////////////////    TODO: Spremeni celo zadevo, da bo actually responsive movment.
+
+    private void PlayerMovement()
 	{
-		float horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
-
-		Vector2 vect = rb.velocity;
- 
-		rb.velocity = new Vector2 (horizInput * movementSpeed, vect.y);
+        horizInput = Input.GetAxisRaw(horizontalInputName) * movementSpeed;
 
 		if (horizInput > 0 && !facingRight)
 		{
@@ -65,7 +71,6 @@ public class PlayerController : MonoBehaviour
 			FlipPlayer();
 		}
 	}
-
     void FlipPlayer()
     {
         if (!frozen)
@@ -81,42 +86,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    //////////////////// Player jump. ////////////////////
-
     private void PlayerJump()
 	{
-		float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
-
-		// Debug.Log(vertInput);
-
-		if (IsOnGround () && isJumping == false && isDragging == false)
-		{
-			if (vertInput > 0f)
-			{
-				isJumping = true;
-			}
-		}
-
-		if (jumpButtonPressTime > maxJumpTime)
-		{
-			vertInput = 0f;
-		}
- 
-		if (isJumping && (jumpButtonPressTime <= maxJumpTime))
-		{
-			rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
-		}
- 
-		if (vertInput >= 1f)
-		{
-			jumpButtonPressTime += Time.deltaTime;
-		}
-		else
-		{
-			isJumping = false;
-			jumpButtonPressTime = 0f;
-		}
+      
+        if (isGrounded && Input.GetKeyDown(jumpKey))
+        {
+            //rb.AddRelativeForce(Vector2.up * jumpForce);
+            rb.velocity = Vector2.up * jumpForce;
+        }
 	}
 
 	public bool IsOnGround()

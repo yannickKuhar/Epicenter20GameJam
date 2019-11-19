@@ -17,6 +17,7 @@ public class DragingObject : MonoBehaviour
     {
         pull = targetPlayer.GetComponent<PlayerController>().PullControl;
         colorInfo.text = "";
+        colorInfo.CrossFadeAlpha(0.0f, 0.05f, false);
 
     }
 
@@ -40,7 +41,6 @@ public class DragingObject : MonoBehaviour
     {
         if (collision.collider.CompareTag(targetPlayer.tag))
         {
-            Debug.Log("Correct player dragging box");
             if (targetPlayer.tag == "PlayerWhite")
             {
                 colorInfo.text = "Hold L to drag.";
@@ -49,8 +49,9 @@ public class DragingObject : MonoBehaviour
             {
                 colorInfo.text = "Hold F to drag.";
             }
+            colorInfo.CrossFadeAlpha(1.0f, 0.1f, false);
 
-        }                    
+        }
 
         if (Input.GetKey(pull) && collision.collider.tag == targetPlayer.tag  && isDragging == false)
         {
@@ -58,6 +59,11 @@ public class DragingObject : MonoBehaviour
             Vector3 center = collision.collider.bounds.center;
             Dragging();            
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        colorInfo.CrossFadeAlpha(0.0f, 0.2f, false);
     }
 
     private void Update()

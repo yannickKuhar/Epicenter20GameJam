@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping = false;
     [SerializeField] private float jumpButtonPressTimerRemember = 0.2f;
     [SerializeField] private float jumpButtonPressTimer = 0f;
+    [SerializeField] private float jumpCut = 0.5f;
 
     private float rayCastLength = 0.005f;
 	
@@ -99,32 +100,38 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerJump()
 	{
+        
         jumpButtonPressTimer -= Time.deltaTime;
-        if (Input.GetKeyDown(jumpKey))
+        if (Input.GetKeyDown(jumpKey) && !isDragging)
         {
             jumpButtonPressTimer = jumpButtonPressTimerRemember;
-
         }
+
         if ((jumpButtonPressTimer > 0f) && isGrounded)
         {
             jumpButtonPressTimer = 0f;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        //faster falloff
+        if (Input.GetKeyUp(jumpKey))
+        {
+            if (rb.velocity.x > 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCut);
+            }
         }
     }
 
 	public bool IsOnGround()
 	{
 		bool groundCheckDown = Physics2D.Raycast (new Vector2 (transform.position.x, transform.position.y - height), -Vector2.up, rayCastLength);
- 
 		bool groundCheckRight = Physics2D.Raycast (new Vector2 (transform.position.x + (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
- 
 		bool groundCheckLeft = Physics2D.Raycast (new Vector2 (transform.position.x - (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
  
 		if (groundCheckDown || groundCheckRight || groundCheckLeft)
 		{
 			return true;
 		}
- 
 		return false; 
 	}
 

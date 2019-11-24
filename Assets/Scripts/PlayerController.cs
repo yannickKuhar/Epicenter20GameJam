@@ -137,7 +137,4 @@ public class PlayerController : MonoBehaviour
 	{
 		return facingRight;
 	}
-
-    /////////////////// Win conditions //////////////
-
 }

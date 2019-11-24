@@ -1228,8 +1228,10 @@ MonoBehaviour:
   isDragging: 0
   PullControl: 102
   jumpKey: 119
-  jumpForce: 2
+  jumpForce: 5
   isGrounded: 0
+  jumpButtonPressTimerRemember: 0.2
+  jumpButtonPressTimer: 0
 --- !u!114 &1186073175737062782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,6 +2218,8 @@ MonoBehaviour:
   jumpKey: 273
   jumpForce: 5
   isGrounded: 0
+  jumpButtonPressTimerRemember: 0.2
+  jumpButtonPressTimer: 0
 --- !u!114 &2871116220632675802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2351,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8547809806075178065}
     m_Modifications:
+    - target: {fileID: 2876153017170375030, guid: 4dc66647d10e6ae4e9adc888581dad64,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerBlack
+      objectReference: {fileID: 0}
     - target: {fileID: 2876153017426857695, guid: 4dc66647d10e6ae4e9adc888581dad64,
         type: 3}
       propertyPath: m_RootOrder
@@ -2376,11 +2385,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2876153017170375030, guid: 4dc66647d10e6ae4e9adc888581dad64,
-        type: 3}
-      propertyPath: m_TagString
-      value: PlayerBlack
       objectReference: {fileID: 0}
     - target: {fileID: 4680192493590222740, guid: 4dc66647d10e6ae4e9adc888581dad64,
         type: 3}

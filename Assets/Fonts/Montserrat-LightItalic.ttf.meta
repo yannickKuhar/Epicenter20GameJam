@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fb7c631490d983542a3180ff838860bb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Montserrat Light
+  fontNames:
+  - Montserrat Light
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2f2bb09c26f2653449720e4339694c16, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

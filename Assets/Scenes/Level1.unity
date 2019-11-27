@@ -1565,7 +1565,8 @@ PrefabInstance:
       propertyPath: isDragging
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1186073175737062783, guid: b46b0e39fc236a944807178888eea1e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b46b0e39fc236a944807178888eea1e6, type: 3}
 --- !u!4 &1186073175409966242 stripped
 Transform:

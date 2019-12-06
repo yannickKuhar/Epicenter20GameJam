@@ -8,7 +8,7 @@ public class Sticky : MonoBehaviour
     public GameObject targetPlayer;
     public GameObject savedPlayer;
     private int health = 5;
-    private bool extended = true;
+   // private bool extended = true;
     
 
     private void OnTriggerEnter2D(Collider2D collision)

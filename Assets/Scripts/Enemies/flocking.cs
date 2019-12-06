@@ -13,7 +13,7 @@ public class flocking : MonoBehaviour
     private Rigidbody2D enemy;
     private Transform target;
     private GameObject[] flockers;
-    private bool wall_hit;
+    //private bool wall_hit;
     private Vector3 current_dir;
 
     void Start()
@@ -22,7 +22,7 @@ public class flocking : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         enemyCurrentHealth = enemyHealth;
         flockers = GameObject.FindGameObjectsWithTag("Flocker");
-        wall_hit = false;
+        //wall_hit = false;
         current_dir = target.position - transform.position;
     }
 

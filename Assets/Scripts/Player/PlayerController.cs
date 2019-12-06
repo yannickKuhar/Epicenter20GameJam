@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Control Variables")]
-    [SerializeField] private string horizontalInputName;
-    [SerializeField] private string verticalInputName;
+    [SerializeField] private string horizontalInputName = default;
+    [SerializeField] private string verticalInputName = default;
     [SerializeField] private bool singelPlayer = true;
     public KeyCode PullControl;
-    [SerializeField]private string currentActive = default;
+    private string verticalInput;
+    public bool active = true;
 
     [Header("Movement Variables")]
 	public float movementSpeed = 5.0f;
@@ -28,6 +29,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpButtonPressTimer = 0f;
     [SerializeField] private float jumpCut = 0.5f;
 
+    [Header("SP Stuff")]
+    [SerializeField] private string setControllerHor = "HorizontalAD";
+    [SerializeField] private string setControllerVer = "VerticalWS";
+
     private float rayCastLength = 0.005f;	
 	private float width;
 	private float height;
@@ -42,6 +47,11 @@ public class PlayerController : MonoBehaviour
         {
             singelPlayer = false;
         }
+
+        if (singelPlayer && gameObject.tag == "PlayerWhite")
+        {
+            active = false;
+        }
   
   
         //not exactly sure zakaj rabita drugačne boundarije ampak it works so ¯\_(ツ)_/¯
@@ -55,13 +65,13 @@ public class PlayerController : MonoBehaviour
             width = GetComponent<Collider2D>().bounds.extents.x;
             height = GetComponent<Collider2D>().bounds.extents.y;                                                                   
         }
-
-
 	    rb = GetComponent<Rigidbody2D>();
   }
 
     void Update()
     {
+        ActivityCheck();
+
         isGrounded = IsOnGround();
         PlayerMovement();
         PlayerJump();
@@ -72,18 +82,40 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizInput * movementSpeed, vect.y);
     }
 
+    private void ActivityCheck()
+    { 
+        if (singelPlayer)
+        {
+            if(active)
+            {
+                horizontalInputName = setControllerHor;
+                jumpKey = KeyCode.W;
+                PullControl = KeyCode.F;
+            }
+            if (!active)
+            {
+                horizontalInputName = "";
+                jumpKey = default;
+                PullControl = default;
+            }
+        }
+    }
+
     private void PlayerMovement()
 	{
-        horizInput = Input.GetAxisRaw(horizontalInputName) * movementSpeed;
+        if (active)
+        {
+            horizInput = Input.GetAxisRaw(horizontalInputName) * movementSpeed;
 
-		if (horizInput > 0 && !facingRight)
-		{
-			FlipPlayer();
-		}
-		else if (horizInput < 0 && facingRight)
-		{
-			FlipPlayer();
-		}
+            if (horizInput > 0 && !facingRight)
+            {
+                FlipPlayer();
+            }
+            else if (horizInput < 0 && facingRight)
+            {
+                FlipPlayer();
+            }
+        }
 	}
     private void FlipPlayer()
     {
@@ -122,59 +154,6 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumpCut);
             }
         }
-    }
-
-    private void PlayerSwitch()
-    {
-        if (singelPlayer && Input.GetKey(KeyCode.Tab))
-        {
-            if (currentActive == "White")
-            {
-                ActivateBlack();
-            }
-            else
-            {
-                ActivateWhite();
-            }
-        }
-        if (singelPlayer && currentActive == default)
-        {
-            ActivateWhite(); 
-        }
-    }
-    private void ActivateWhite()
-    {
-        if (gameObject.tag == "PlayerWhite")
-        {
-            horizontalInputName = "HorizontalAD";
-            verticalInputName = "VerticalWS";
-            PullControl = KeyCode.F;
-        }
-        else
-        {
-            horizontalInputName = "";
-            verticalInputName = "";
-            PullControl = default;
-        }
-
-        currentActive = "White";
-    }
-    private void ActivateBlack()
-    {
-        if (gameObject.tag == "PlayerBlack")
-        {
-            horizontalInputName = "HorizontalAD";
-            verticalInputName = "VerticalWS";
-            PullControl = KeyCode.F;
-        }
-        else
-        {
-            horizontalInputName = "";
-            verticalInputName = "";
-            PullControl = default;
-        }
-
-        currentActive = "Black";
     }
 
     public bool IsOnGround()

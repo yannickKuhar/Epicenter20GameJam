@@ -9,7 +9,7 @@ public class WinConditionEnter : MonoBehaviour
 {
     [Header("Fethcer")]
     public WinLoader loader;
-    [SerializeField] private Text colorInfo;
+    [SerializeField] private Text colorInfo = default;
 
 
     private void OnTriggerEnter2D(Collider2D collision)

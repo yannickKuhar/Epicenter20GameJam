@@ -43,10 +43,6 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
   {
-        if (GameMode.PlayerNum == 2)
-        {
-            singelPlayer = false;
-        }
 
         if (singelPlayer && gameObject.tag == "PlayerWhite")
         {
@@ -94,6 +90,7 @@ public class PlayerController : MonoBehaviour
             }
             if (!active)
             {
+                Debug.Log("Deactivating" + gameObject.tag);
                 horizontalInputName = "";
                 jumpKey = default;
                 PullControl = default;

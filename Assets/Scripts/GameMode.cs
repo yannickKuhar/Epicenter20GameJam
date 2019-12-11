@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class GameMode : MonoBehaviour
 {
-    private static int playerNum;
+    public static bool singlePlayer = true;
 
-    public static int PlayerNum
+    public void ChangeMode()
     {
-        get
+        if (singlePlayer)
         {
-            return playerNum;
+            singlePlayer = false;
+            Debug.Log("Switching to MP mode");
+            Debug.Log(singlePlayer);
         }
-        set
+        else
         {
-            playerNum = value;
+            singlePlayer = true;
+            Debug.Log("not sp, switching to sp");
+            Debug.Log(singlePlayer);
         }
+
     }
 }

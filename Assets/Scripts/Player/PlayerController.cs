@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 	private bool facingRight = true;
     public bool isDragging = false;
+    private Animator playerAnim;
 
 
     [Header("Jumping Variables")]
@@ -42,7 +43,9 @@ public class PlayerController : MonoBehaviour
     //////////////////// Unity main functions. ////////////////////
 
     void Awake()
-  {
+    {
+
+        playerAnim = gameObject.GetComponent<Animator>();
 
         if (singelPlayer && gameObject.tag == "PlayerWhite")
         {
@@ -71,6 +74,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = IsOnGround();
         PlayerMovement();
         PlayerJump();
+        AnimControl();
     }
     void FixedUpdate()
     {
@@ -90,7 +94,6 @@ public class PlayerController : MonoBehaviour
             }
             if (!active)
             {
-                Debug.Log("Deactivating" + gameObject.tag);
                 horizontalInputName = "";
                 jumpKey = default;
                 PullControl = default;
@@ -189,5 +192,16 @@ public class PlayerController : MonoBehaviour
         //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
+    public void AnimControl()
+    {
+        if(isDragging)
+        {
+            playerAnim.SetBool("Dragging", true);
+        }
+        else
+        {
+            playerAnim.SetBool("Dragging", false);
+        }
+    }
 
 }

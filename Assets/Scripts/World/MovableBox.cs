@@ -9,6 +9,10 @@ public class MovableBox : MonoBehaviour
     private bool active;
     [SerializeField] private float animSpeed = 1f;
     private Animator anim;
+    [SerializeField] private bool reverse = false;
+    [SerializeField] private bool shortAnim = false;
+
+
 
     void Start()
     {
@@ -34,6 +38,23 @@ public class MovableBox : MonoBehaviour
         {
             anim.speed = animSpeed;
         }
+        
+        if(reverse)
+        {
+            anim.SetBool("Reverse", true);
+        }
+        if(shortAnim)
+        {
+            anim.SetBool("Short", true);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.parent = transform;
 
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.parent = null;
     }
 }

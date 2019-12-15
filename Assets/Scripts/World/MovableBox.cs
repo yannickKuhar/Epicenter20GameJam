@@ -11,6 +11,7 @@ public class MovableBox : MonoBehaviour
     private Animator anim;
     [SerializeField] private bool reverse = false;
     [SerializeField] private bool shortAnim = false;
+    [SerializeField] private bool diag = false;
 
 
 
@@ -46,6 +47,10 @@ public class MovableBox : MonoBehaviour
         if(shortAnim)
         {
             anim.SetBool("Short", true);
+        }
+        if(diag)
+        {
+            anim.SetBool("Diag", true);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

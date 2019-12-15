@@ -6,12 +6,7 @@ using UnityEngine.UI;
 public class PlayerSwitcher : MonoBehaviour
 {
     private GameObject whitePlayer;
-    [SerializeField] private GameObject whitePlayerIndicator;
-
     private GameObject blackPlayer;
-    [SerializeField] private GameObject blackPlayerIndicator;
-    
-    // Start is called before the first frame update
     void Start()
     {
         if(!GameMode.singlePlayer)

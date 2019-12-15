@@ -148,7 +148,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 73d3e2bcb7d997f41a558e7c76be0980, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -213,7 +213,10 @@ MonoBehaviour:
   buddyButton: {fileID: 8833074411841375997}
   objColor: White
   interactibleByBoth: 0
+  goesBackUp: 0
   pressed: 0
+  pressedByBox: 0
+  pressedByPlayer: 0
 --- !u!114 &8833074411633332812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +308,10 @@ MonoBehaviour:
   buddyButton: {fileID: 8833074411633332815}
   objColor: White
   interactibleByBoth: 0
+  goesBackUp: 0
   pressed: 0
+  pressedByBox: 0
+  pressedByPlayer: 0
 --- !u!114 &8833074411841375994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +521,7 @@ GameObject:
   - component: {fileID: 8833074412763207602}
   - component: {fileID: 3803126218061070133}
   m_Layer: 0
-  m_Name: WhiteButtonPair
+  m_Name: ButtonPairWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,3 +558,4 @@ MonoBehaviour:
   TopButton: {fileID: 8833074411633332815}
   BottomButton: {fileID: 8833074411841375997}
   bothCanInteract: 0
+  bothPressed: 0

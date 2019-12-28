@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2404706285502826392}
-  - component: {fileID: 2404706285502826393}
+  - component: {fileID: 5876073646149210203}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Wall
@@ -113,8 +113,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2404706285502826393
-BoxCollider2D:
+--- !u!70 &5876073646149210203
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,19 +126,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.1911163, y: 4.2316074}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.0091376, y: 0.4984703}
-  m_EdgeRadius: 0
+  m_Offset: {x: 1.1409012, y: 4.27}
+  m_Size: {x: 3.9211535, y: 0.39999968}
+  m_Direction: 1
 --- !u!1 &2404706285639508345
 GameObject:
   m_ObjectHideFlags: 0

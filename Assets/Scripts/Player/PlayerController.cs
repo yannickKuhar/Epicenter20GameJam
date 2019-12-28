@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("Control Variables")]
     [SerializeField] private string horizontalInputName = default;
     [SerializeField] private string verticalInputName = default;
-    [SerializeField] private bool singelPlayer = true;
+    [SerializeField] public bool singelPlayer = true;
     public KeyCode PullControl;
     private string verticalInput;
     public bool active = true;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private float rayCastLength = 0.005f;	
 	private float width;
 	private float height;
-    private bool frozen = false;
+    [SerializeField]private bool frozen = false;
                                                 
 
     //////////////////// Unity main functions. ////////////////////
@@ -70,11 +70,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ActivityCheck();
-
         isGrounded = IsOnGround();
         PlayerMovement();
         PlayerJump();
         AnimControl();
+
     }
     void FixedUpdate()
     {
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             if (!active)
             {
                 horizontalInputName = "";
-                jumpKey = default;
+                jumpKey = KeyCode.Alpha0;
                 PullControl = default;
             }
         }
@@ -107,31 +107,17 @@ public class PlayerController : MonoBehaviour
         {
             horizInput = Input.GetAxisRaw(horizontalInputName) * movementSpeed;
 
-            if (horizInput > 0 && !facingRight)
+            if (horizInput > 0)
             {
-                FlipPlayer();
+                facingRight = true;
             }
             else if (horizInput < 0 && facingRight)
             {
-                FlipPlayer();
+                facingRight = false;
             }
         }
 	}
-    private void FlipPlayer()
-    {
-        if (!frozen)
-        {
-            if (isDragging == false)
-            {
-                // Flip the facing value
-                facingRight = !facingRight;
 
-                Vector3 scale = transform.localScale;
-                scale.x *= -1;
-                transform.localScale = scale;
-            }
-        }
-    }
     private void PlayerJump()
 	{
         
@@ -201,6 +187,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerAnim.SetBool("Dragging", false);
+        }
+
+        if(!facingRight && !isDragging)
+        {
+            playerAnim.SetBool("Left", true);
+        }
+        if(facingRight && !isDragging)
+        {
+            playerAnim.SetBool("Left", false);
         }
     }
 

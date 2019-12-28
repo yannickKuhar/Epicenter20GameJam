@@ -58,5 +58,11 @@ public class GroundEnemy : MonoBehaviour
                 direction = Vector2.left;
             }
         }
+        if (collision.tag == "Sword")
+        {
+            Debug.Log("Hit by sword");
+            Destroy(gameObject);
+            GetComponent<BuddySystem>().DestroyBuddy();
+        }
     }
 }

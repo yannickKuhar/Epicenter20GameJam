@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 547473458243062033}
   - component: {fileID: 547473458243062034}
-  - component: {fileID: 547473458243062035}
   - component: {fileID: 547473458243062045}
+  - component: {fileID: 3962512433356304994}
   m_Layer: 0
   m_Name: DraggableWhite
   m_TagString: DraggableWhite
@@ -82,8 +82,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &547473458243062035
-BoxCollider2D:
+--- !u!114 &547473458243062045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547473458243062046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d91a70945a86714f9eea34c893c078f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPlayer: {fileID: 0}
+  colorInfo: {fileID: 0}
+--- !u!60 &3962512433356304994
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,19 +119,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2}
-  m_EdgeRadius: 0
---- !u!114 &547473458243062045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547473458243062046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d91a70945a86714f9eea34c893c078f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.7119775, y: 0.9992709}
+      - {x: -0.66471386, y: 0.9970441}
+      - {x: -0.9889355, y: 0.66691494}
+      - {x: -1, y: -1}
+      - {x: 0.952, y: -1}
+      - {x: 1, y: -0.96000004}
+      - {x: 0.96898127, y: 0.5642748}
+      - {x: 0.8354378, y: 0.76736546}

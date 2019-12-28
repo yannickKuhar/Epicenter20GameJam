@@ -15,7 +15,14 @@ public class DragingObject : MonoBehaviour
 
     private void Awake()
     {
-        pull = targetPlayer.GetComponent<PlayerController>().PullControl;
+        if (!targetPlayer.GetComponent<PlayerController>().singelPlayer)
+        {
+            pull = targetPlayer.GetComponent<PlayerController>().PullControl;
+        }
+        else
+        {
+            pull = KeyCode.F;
+        }
         colorInfo.text = "";
         colorInfo.CrossFadeAlpha(0.0f, 0.05f, false);
 
@@ -41,11 +48,11 @@ public class DragingObject : MonoBehaviour
     {
         if (collision.collider.CompareTag(targetPlayer.tag))
         {
-            if (targetPlayer.tag == "PlayerWhite")
+            if (targetPlayer.tag == "PlayerWhite" && !targetPlayer.GetComponent<PlayerController>().singelPlayer)
             {
                 colorInfo.text = "Hold L to drag.";
             }
-            if (targetPlayer.tag == "PlayerBlack")
+            if (targetPlayer.tag == "PlayerBlack" || targetPlayer.tag == "PlayerWhite" && targetPlayer.GetComponent<PlayerController>().singelPlayer)
             {
                 colorInfo.text = "Hold F to drag.";
             }

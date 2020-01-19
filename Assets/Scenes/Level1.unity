@@ -914,6 +914,18 @@ PrefabInstance:
       objectReference: {fileID: 699438983}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e850327ed24124ca686479810b4aeb, type: 3}
+--- !u!114 &1061543317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3563386028722115105, guid: 4edda509d6fb94d4ea4f6efb144d91a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1559230030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1175101866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 916131399424766210, guid: 16bc0d39740179c4b8021ea77c8a7407,
@@ -1214,6 +1226,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 125e473a9a933d54e9d06b89c5a9b097, type: 3}
+--- !u!114 &1720468262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3563386028416856113, guid: 4edda509d6fb94d4ea4f6efb144d91a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1559230030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1847374145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1804,7 +1828,7 @@ PrefabInstance:
         type: 3}
       propertyPath: colorInfo
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1720468262}
     - target: {fileID: 1186073175737062721, guid: b46b0e39fc236a944807178888eea1e6,
         type: 3}
       propertyPath: jumpButtonPressTimer
@@ -1874,7 +1898,7 @@ PrefabInstance:
         type: 3}
       propertyPath: colorInfo
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1061543317}
     - target: {fileID: 1186073175984743792, guid: b46b0e39fc236a944807178888eea1e6,
         type: 3}
       propertyPath: m_IsActive

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SetTextToNull : MonoBehaviour
 {
-    void Start()
-    {
+    void U()
+    {    
         this.GetComponent<Text>().text = "";
     }
 }

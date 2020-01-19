@@ -136,6 +136,8 @@ MonoBehaviour:
   interactibleByBoth: 0
   goesBackUp: 0
   pressed: 0
+  pressedByBox: 0
+  pressedByPlayer: 0
 --- !u!114 &2833117833050204733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +542,8 @@ MonoBehaviour:
   interactibleByBoth: 0
   goesBackUp: 0
   pressed: 0
+  pressedByBox: 0
+  pressedByPlayer: 0
 --- !u!114 &2833117834622186865
 MonoBehaviour:
   m_ObjectHideFlags: 0
